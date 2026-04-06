@@ -1,33 +1,10 @@
 {
-  "nodes": [
-    {
-      "id": "start",
-      "type": "workflow",
-      "position": {
-        "x": 400,
-        "y": 300
-      },
-      "data": {
-        "label": "Start Here",
-        "color": "#374151"
-      },
-      "style": {
-        "background": "transparent",
-        "color": "#f8fafc",
-        "border": "none",
-        "boxShadow": "none",
-        "borderRadius": 0,
-        "padding": 0,
-        "fontSize": 12,
-        "fontWeight": 500,
-        "lineHeight": 1.35
-      },
-      "measured": {
-        "width": 120,
-        "height": 38
-      }
-    }
-  ],
-  "edges": [],
-  "updatedAt": "2026-04-02T09:46:35.228Z"
+  "last_updated": "2026-04-06",
+  "workflow": [
+    "Add or update module data in app/<module>/data.ts",
+    "Ensure TopicCard receives codeSamples from the page",
+    "Run npm run dev and verify routes",
+    "Iterate on content and UI",
+    "Commit changes"
+  ]
 }

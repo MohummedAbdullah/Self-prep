@@ -1,128 +1,24 @@
 {
-  "items": [
+  "project": "Full Stack Interview Prep",
+  "last_updated": "2026-04-06",
+  "milestones": [
     {
-      "id": "tpl-f1",
-      "title": "Feature 1",
-      "type": "h1",
-      "order": 0
+      "id": "m1",
+      "title": "Core Modules and Layout",
+      "status": "done",
+      "notes": "All module pages, shared layout, and data files in place."
     },
     {
-      "id": "tpl-1a",
-      "title": "Reusable Components",
-      "type": "h2",
-      "order": 1,
-      "parentId": "tpl-f1"
+      "id": "m2",
+      "title": "Content Expansion",
+      "status": "in_progress",
+      "notes": "Expanded terms, hard questions, and multi-code examples. Continue refining depth."
     },
     {
-      "id": "tpl-1b",
-      "title": "Another task for feature 1",
-      "type": "bullet",
-      "order": 2,
-      "parentId": "tpl-f1"
-    },
-    {
-      "id": "tpl-1c",
-      "title": "One more task",
-      "type": "bullet",
-      "order": 3,
-      "parentId": "tpl-f1"
-    },
-    {
-      "id": "tpl-d1",
-      "title": "",
-      "type": "divider",
-      "order": 4
-    },
-    {
-      "id": "tpl-f2",
-      "title": "Feature 2",
-      "type": "h1",
-      "order": 5
-    },
-    {
-      "id": "tpl-2a",
-      "title": "First step",
-      "type": "number",
-      "order": 6,
-      "parentId": "tpl-f2"
-    },
-    {
-      "id": "tpl-2b",
-      "title": "Second step",
-      "type": "number",
-      "order": 7,
-      "parentId": "tpl-f2"
-    },
-    {
-      "id": "tpl-2c",
-      "title": "Third step",
-      "type": "number",
-      "order": 8,
-      "parentId": "tpl-f2"
-    },
-    {
-      "id": "tpl-d2",
-      "title": "",
-      "type": "divider",
-      "order": 9
-    },
-    {
-      "id": "tpl-f3",
-      "title": "Feature 3",
-      "type": "h1",
-      "order": 10
-    },
-    {
-      "id": "tpl-3a",
-      "title": "Todo item",
-      "type": "check",
-      "order": 11,
-      "parentId": "tpl-f3"
-    },
-    {
-      "id": "tpl-3b",
-      "title": "Another todo",
-      "type": "check",
-      "order": 12,
-      "parentId": "tpl-f3"
-    },
-    {
-      "id": "716c89c8-0e92-4232-8862-a37f72ec1340",
-      "title": "Shared Components Folder",
-      "type": "h2",
-      "parentId": "tpl-f1",
-      "order": 13
-    },
-    {
-      "id": "accec3e8-98ee-4b90-9b4c-13e58ea5dfac",
-      "title": "Create components/ModuleLayout.tsx - Consistent layout for all modules",
-      "type": "check",
-      "order": 14
-    },
-    {
-      "id": "e0c7bffa-75da-4153-9358-3362b4cfc7ba",
-      "title": "Create components/TopicCard.tsx - Display individual topics",
-      "type": "check",
-      "order": 15
-    },
-    {
-      "id": "cf88fc3c-61b4-4158-aafc-f3102a856e5f",
-      "title": "Create components/QuestionAccordion.tsx - Q&A with difficulty badges",
-      "type": "check",
-      "order": 16
-    },
-    {
-      "id": "71e16568-3f1a-4268-bbf1-4d3f0ff526e9",
-      "title": "Create components/CodeBlock.tsx - Syntax-highlighted code examples",
-      "type": "check",
-      "order": 17
-    },
-    {
-      "id": "b1775218683817-1",
-      "title": "",
-      "type": "divider",
-      "order": 18
+      "id": "m3",
+      "title": "Polish and QA",
+      "status": "todo",
+      "notes": "Visual polish, accessibility checks, and performance tuning."
     }
-  ],
-  "updatedAt": "2026-04-03T12:18:15.355Z"
+  ]
 }
