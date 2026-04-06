@@ -1,0 +1,3 @@
+gateway connect failed: GatewayClientRequestError: pairing required
+[model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.2-codex candidate=openai/gpt-5.2-codex reason=auth next=none
+FailoverError: No API key found for provider "openai". You are authenticated with OpenAI Codex OAuth. Use openai-codex/gpt-5.4 (OAuth) or set OPENAI_API_KEY to use openai/gpt-5.4.

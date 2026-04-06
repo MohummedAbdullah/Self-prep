@@ -1,0 +1,85 @@
+{
+  "items": [
+    {"id":"1","title":"Batch 1: Foundation (Essential First)","type":"h1","order":0},
+    {"id":"2","title":"Reusable Components","type":"h2","parentId":"1","order":1},
+    {"id":"3","title":"Create ModuleLayout.tsx - Consistent layout for all modules","type":"check","parentId":"2","order":2,"checked":false},
+    {"id":"4","title":"Create TopicCard.tsx - Display individual topics","type":"check","parentId":"2","order":3,"checked":false},
+    {"id":"5","title":"Create QuestionAccordion.tsx - Q&A component with difficulty badges","type":"check","parentId":"2","order":4,"checked":false},
+    {"id":"6","title":"Create CodeBlock.tsx - Syntax-highlighted code examples","type":"check","parentId":"2","order":5,"checked":false},
+    {"id":"7","title":"Generic Concepts Module","type":"h2","parentId":"1","order":6},
+    {"id":"8","title":"Create /app/generic/page.tsx","type":"check","parentId":"7","order":7,"checked":false},
+    {"id":"9","title":"Create data/generic-data.ts - 20-30 technical terms, 15-20 interview questions","type":"check","parentId":"7","order":8,"checked":false},
+    {"id":"10","title":"Include: Programming Paradigms, Data Structures, Algorithms, Design Patterns, SOLID Principles, Clean Code","type":"bullet","parentId":"7","order":9},
+    
+    {"id":"11","title":"Batch 2: Frontend Core","type":"h1","order":10},
+    {"id":"12","title":"HTML & CSS Module","type":"h2","parentId":"11","order":11},
+    {"id":"13","title":"Create /app/html-css/page.tsx","type":"check","parentId":"12","order":12,"checked":false},
+    {"id":"14","title":"Create data/html-css-data.ts - 20-30 technical terms, 15-20 interview questions","type":"check","parentId":"12","order":13,"checked":false},
+    {"id":"15","title":"Include: Semantic HTML, Box Model, Flexbox & Grid, Responsive Design, CSS Specificity, CSS Preprocessors, Animations, Accessibility","type":"bullet","parentId":"12","order":14},
+    
+    {"id":"16","title":"JavaScript Module","type":"h2","parentId":"11","order":15},
+    {"id":"17","title":"Create /app/javascript/page.tsx","type":"check","parentId":"16","order":16,"checked":false},
+    {"id":"18","title":"Create data/javascript-data.ts - 20-30 technical terms, 15-20 interview questions","type":"check","parentId":"16","order":17,"checked":false},
+    {"id":"19","title":"Include: Data Types & Coercion, Scope & Closures, Prototypes & Inheritance, Event Loop & Async Programming, Promises & Async/Await, ES6+ Features, Modules, Memory Management","type":"bullet","parentId":"16","order":18},
+    
+    {"id":"20","title":"TypeScript Module","type":"h2","parentId":"11","order":19},
+    {"id":"21","title":"Create /app/typescript/page.tsx","type":"check","parentId":"20","order":20,"checked":false},
+    {"id":"22","title":"Create data/typescript-data.ts - 20-30 technical terms, 15-20 interview questions","type":"check","parentId":"20","order":21,"checked":false},
+    {"id":"23","title":"Include: Basic Types & Interfaces, Generics, Type Inference & Assertions, Advanced Types, Decorators, Type Guards & Narrowing, Module Resolution, tsconfig Configuration","type":"bullet","parentId":"20","order":22},
+    
+    {"id":"24","title":"React.js Module","type":"h2","parentId":"11","order":23},
+    {"id":"25","title":"Create /app/react/page.tsx","type":"check","parentId":"24","order":24,"checked":false},
+    {"id":"26","title":"Create data/react-data.ts - 20-30 technical terms, 15-20 interview questions","type":"check","parentId":"24","order":25,"checked":false},
+    {"id":"27","title":"Include: Component Lifecycle, Hooks (useState, useEffect, useContext, Custom Hooks), Virtual DOM & Reconciliation, Context API & State Management, Performance Optimization, HOCs, Error Boundaries, Testing","type":"bullet","parentId":"24","order":26},
+    
+    {"id":"28","title":"","type":"divider","order":27},
+    
+    {"id":"29","title":"Batch 3: Frameworks & Backend","type":"h1","order":28},
+    {"id":"30","title":"Next.js Module","type":"h2","parentId":"29","order":29},
+    {"id":"31","title":"Create /app/nextjs/page.tsx","type":"check","parentId":"30","order":30,"checked":false},
+    {"id":"32","title":"Create data/nextjs-data.ts - 20-30 technical terms, 15-20 interview questions","type":"check","parentId":"30","order":31,"checked":false},
+    {"id":"33","title":"Include: SSR vs SSG vs ISR, App Router vs Pages Router, API Routes & Middleware, Dynamic Routing, Image Optimization, Data Fetching Patterns, Next.js 14+ Features, Deployment & Configuration","type":"bullet","parentId":"30","order":32},
+    
+    {"id":"34","title":"Node.js Module","type":"h2","parentId":"29","order":33},
+    {"id":"35","title":"Create /app/nodejs/page.tsx","type":"check","parentId":"34","order":34,"checked":false},
+    {"id":"36","title":"Create data/nodejs-data.ts - 20-30 technical terms, 15-20 interview questions","type":"check","parentId":"34","order":35,"checked":false},
+    {"id":"37","title":"Include: Event Loop & Concurrency, Streams & Buffers, Clustering & Worker Threads, Child Processes, File System Operations, NPM & Package Management, Memory Management, Security Best Practices","type":"bullet","parentId":"34","order":36},
+    
+    {"id":"38","title":"Express.js Module","type":"h2","parentId":"29","order":37},
+    {"id":"39","title":"Create /app/express/page.tsx","type":"check","parentId":"38","order":38,"checked":false},
+    {"id":"40","title":"Create data/express-data.ts - 20-30 technical terms, 15-20 interview questions","type":"check","parentId":"38","order":39,"checked":false},
+    {"id":"41","title":"Include: Middleware Architecture, Routing & Route Handlers, Error Handling Patterns, Authentication (JWT, Sessions), Input Validation & Sanitization, Rate Limiting & Security, Template Engines, Testing Express Apps","type":"bullet","parentId":"38","order":40},
+    
+    {"id":"42","title":"React Native Module","type":"h2","parentId":"29","order":41},
+    {"id":"43","title":"Create /app/react-native/page.tsx","type":"check","parentId":"42","order":42,"checked":false},
+    {"id":"44","title":"Create data/react-native-data.ts - 20-30 technical terms, 15-20 interview questions","type":"check","parentId":"42","order":43,"checked":false},
+    {"id":"45","title":"Include: Core Components vs Web, Platform-Specific Code, Navigation (React Navigation), Native Modules & Bridges, Performance Optimization, Expo vs Bare Workflow, Styling in React Native, State Management for Mobile","type":"bullet","parentId":"42","order":44},
+    
+    {"id":"46","title":"","type":"divider","order":45},
+    
+    {"id":"47","title":"Batch 4: Alternative Stacks","type":"h1","order":46},
+    {"id":"48","title":"Laravel Module","type":"h2","parentId":"47","order":47},
+    {"id":"49","title":"Create /app/laravel/page.tsx","type":"check","parentId":"48","order":48,"checked":false},
+    {"id":"50","title":"Create data/laravel-data.ts - 20-30 technical terms, 15-20 interview questions","type":"check","parentId":"48","order":49,"checked":false},
+    {"id":"51","title":"Include: MVC Architecture in Laravel, Eloquent ORM & Relationships, Blade Templating, Authentication & Authorization, Queues & Jobs, Service Containers & Providers, Middleware & Requests, Testing with PHPUnit","type":"bullet","parentId":"48","order":50},
+    
+    {"id":"52","title":"Python Module","type":"h2","parentId":"47","order":51},
+    {"id":"53","title":"Create /app/python/page.tsx","type":"check","parentId":"52","order":52,"checked":false},
+    {"id":"54","title":"Create data/python-data.ts - 20-30 technical terms, 15-20 interview questions","type":"check","parentId":"52","order":53,"checked":false},
+    {"id":"55","title":"Include: Python Basics & Syntax, OOP in Python, Decorators & Context Managers, Generators & Iterators, List/Dict Comprehensions, Flask vs Django Comparison, Virtual Environments, Type Hints & mypy","type":"bullet","parentId":"52","order":54},
+    
+    {"id":"56","title":".NET Module","type":"h2","parentId":"47","order":55},
+    {"id":"57","title":"Create /app/dotnet/page.tsx","type":"check","parentId":"56","order":56,"checked":false},
+    {"id":"58","title":"Create data/dotnet-data.ts - 20-30 technical terms, 15-20 interview questions","type":"check","parentId":"56","order":57,"checked":false},
+    {"id":"59","title":"Include: C# Fundamentals, .NET Core vs .NET Framework, Entity Framework Core, Dependency Injection, ASP.NET Core Middleware, Identity & Authentication, Configuration & Options Pattern, xUnit Testing","type":"bullet","parentId":"56","order":58},
+    
+    {"id":"60","title":"","type":"divider","order":59},
+    
+    {"id":"61","title":"Batch 5: Architecture","type":"h1","order":60},
+    {"id":"62","title":"System Design Module","type":"h2","parentId":"61","order":61},
+    {"id":"63","title":"Create /app/system-design/page.tsx","type":"check","parentId":"62","order":62,"checked":false},
+    {"id":"64","title":"Create data/system-design-data.ts - 20-30 technical terms, 15-20 interview questions","type":"check","parentId":"62","order":63,"checked":false},
+    {"id":"65","title":"Include: Scalability Principles, Load Balancing & Caching, Database Design & Sharding, Microservices Architecture, API Gateway Patterns, Message Queues, Monitoring & Logging, Design Interview Frameworks (C.A.R.L.A.)","type":"bullet","parentId":"62","order":64}
+  ],
+  "updatedAt": "2025-08-14T00:00:00Z"
+}

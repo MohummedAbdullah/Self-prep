@@ -1,0 +1,40 @@
+{
+  "tasks": [
+    {
+      "id": "tpl-task-1",
+      "displayId": "NEX-1",
+      "title": "Your first task — edit or delete me!",
+      "description": "",
+      "notes": "Agent summary (nextjs1tnycode):\nI'll create the **Generic Concepts module** now. This will be the starting point module with comprehensive content covering programming fundamentals, data structures, algorithms, and design patterns.",
+      "status": "human_review",
+      "priority": "medium",
+      "labels": [],
+      "assignee": null,
+      "scheduledDate": null,
+      "estimatedMinutes": null,
+      "order": 0,
+      "activity": [],
+      "createdAt": "2026-04-02T06:07:33.616Z",
+      "updatedAt": "2026-04-03T12:03:54.955Z"
+    },
+    {
+      "id": "7fec56c2-dff6-44e7-bf18-a43f12790f78",
+      "displayId": "NEX-2",
+      "title": "The concept for building app is to crack the interview for full stack developer and system architect ,It would be multipage application and there would be a modular based approach used for each language initially it would have an overview and concept of basic html css and similar approaches used in most languages like node,laravel,python,javascript,typescript and .net etc and different structures like mvp and others for basic knowledge and technical keywords then there would be a module for each language frontend ,backend with architecture and developer point of view .At first modulewhich would open to next page it would be generic like kind of course or technical terms for all languages .then afterwards it would be language specific technical terms and concepts for react js,next js ,laravel,react native,express js and python i have some files already created continue with them modular based",
+      "description": "",
+      "notes": "",
+      "status": "in_progress",
+      "priority": "none",
+      "labels": [],
+      "assignee": null,
+      "scheduledDate": null,
+      "estimatedMinutes": null,
+      "order": 1775218657590,
+      "activity": [],
+      "createdAt": "2026-04-03T12:17:37.590Z",
+      "updatedAt": "2026-04-03T12:17:37.590Z"
+    }
+  ],
+  "labelDefs": [],
+  "updatedAt": "2026-04-03T12:17:37.591Z"
+}

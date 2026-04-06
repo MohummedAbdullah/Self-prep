@@ -1,0 +1,33 @@
+{
+  "nodes": [
+    {
+      "id": "start",
+      "type": "workflow",
+      "position": {
+        "x": 400,
+        "y": 300
+      },
+      "data": {
+        "label": "Start Here",
+        "color": "#374151"
+      },
+      "style": {
+        "background": "transparent",
+        "color": "#f8fafc",
+        "border": "none",
+        "boxShadow": "none",
+        "borderRadius": 0,
+        "padding": 0,
+        "fontSize": 12,
+        "fontWeight": 500,
+        "lineHeight": 1.35
+      },
+      "measured": {
+        "width": 120,
+        "height": 38
+      }
+    }
+  ],
+  "edges": [],
+  "updatedAt": "2026-04-02T09:46:35.228Z"
+}
