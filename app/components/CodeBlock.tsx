@@ -29,20 +29,51 @@ export function CodeBlock({
   };
 
   // Simple syntax highlighting helper
+  // const highlightCode = (code: string): string => {
+  //   return code
+  //     // Keywords
+  //     .replace(/\b(const|let|var|function|return|if|else|for|while|switch|case|break|import|export|from|class|interface|type|extends|implements|new|this|async|await|try|catch|throw|typeof|instanceof)\b/g, '<span class="text-pink-400">$1</span>')
+  //     // Functions
+  //     .replace(/\b([a-zA-Z_$][a-zA-Z0-9_$]*)\s*(?=\()/g, '<span class="text-cyan-400">$1</span>')
+  //     // Strings
+  //     .replace(/(['"`])(.*?)(?<!\\)\1/g, '<span class="text-green-400">$1$2$1</span>')
+  //     // Numbers
+  //     .replace(/\b\d+\b/g, '<span class="text-orange-400">$&</span>')
+  //     // Comments
+  //     .replace(/(\/\/.*$|\/\*[\s\S]*?\*\/)/gm, '<span class="text-slate-500">$1</span>')
+  //     // Types (capitalized words)
+  //     .replace(/\b([A-Z][a-zA-Z0-9_$]*)\b/g, '<span class="text-yellow-400">$1</span>');
+  // };
   const highlightCode = (code: string): string => {
-    return code
-      // Keywords
-      .replace(/\b(const|let|var|function|return|if|else|for|while|switch|case|break|import|export|from|class|interface|type|extends|implements|new|this|async|await|try|catch|throw|typeof|instanceof)\b/g, '<span class="text-pink-400">$1</span>')
-      // Functions
-      .replace(/\b([a-zA-Z_$][a-zA-Z0-9_$]*)\s*(?=\()/g, '<span class="text-cyan-400">$1</span>')
-      // Strings
-      .replace(/(['"`])(.*?)(?<!\\)\1/g, '<span class="text-green-400">$1$2$1</span>')
-      // Numbers
-      .replace(/\b\d+\b/g, '<span class="text-orange-400">$&</span>')
-      // Comments
-      .replace(/(\/\/.*$|\/\*[\s\S]*?\*\/)/gm, '<span class="text-slate-500">$1</span>')
-      // Types (capitalized words)
-      .replace(/\b([A-Z][a-zA-Z0-9_$]*)\b/g, '<span class="text-yellow-400">$1</span>');
+    const escaped = code
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+    
+    // Combine all patterns into one replacement with a callback
+    const patterns = [
+      { regex: /(\/\/.*$|\/\*[\s\S]*?\*\/)/gm, class: 'text-slate-500', getMatch: (m: string) => m },
+      { regex: /(['"`])(.*?)(?<!\\)\1/g, class: 'text-green-400', getMatch: (m: string, p1: string, p2: string) => `${p1}${p2}${p1}` },
+      { regex: /\b(const|let|var|function|return|if|else|for|while|switch|case|break|import|export|from|class|interface|type|extends|implements|new|this|async|await|try|catch|throw|typeof|instanceof)\b/g, class: 'text-pink-400', getMatch: (m: string, p1: string) => p1 },
+      { regex: /\b([a-zA-Z_$][a-zA-Z0-9_$]*)\s*(?=\()/g, class: 'text-cyan-400', getMatch: (m: string, p1: string) => p1 },
+      { regex: /\b\d+\b/g, class: 'text-orange-400', getMatch: (m: string) => m },
+      { regex: /\b([A-Z][a-zA-Z0-9_$]*)\b/g, class: 'text-yellow-400', getMatch: (m: string, p1: string) => p1 },
+    ];
+    
+    let result = escaped;
+    for (const { regex, class: className, getMatch } of patterns) {
+      result = result.replace(regex, (match, ...args) => {
+        // Don't replace if already inside HTML tag
+        const beforeMatch = result.substring(0, result.indexOf(match));
+        if (beforeMatch.includes('<span') && !beforeMatch.includes('</span>')) {
+          return match;
+        }
+        const content = getMatch(match, ...args);
+        return `<span class="${className}">${content}</span>`;
+      });
+    }
+    
+    return result;
   };
 
   const lines = code.split('\n');

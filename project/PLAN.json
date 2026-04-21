@@ -81,5 +81,5 @@
     {"id":"64","title":"Create data/system-design-data.ts - 20-30 technical terms, 15-20 interview questions","type":"check","parentId":"62","order":63,"checked":false},
     {"id":"65","title":"Include: Scalability Principles, Load Balancing & Caching, Database Design & Sharding, Microservices Architecture, API Gateway Patterns, Message Queues, Monitoring & Logging, Design Interview Frameworks (C.A.R.L.A.)","type":"bullet","parentId":"62","order":64}
   ],
-  "updatedAt": "2025-08-14T00:00:00Z"
+  "updatedAt": "2026-04-04T00:00:00Z"
 }

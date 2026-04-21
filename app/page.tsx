@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       {/* Hero Section */}
-      <section className="relative px-6 py-24 lg:px-8">
+      <section className="relative px-6 py-24 lg:px-2">
         <div className="mx-auto max-w-4xl text-center">
           <h1 className="text-5xl font-bold tracking-tight text-white sm:text-7xl mb-6">
             Full Stack Interview

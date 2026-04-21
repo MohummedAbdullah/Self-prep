@@ -189,7 +189,7 @@ export default function Page() {
     },
     {
       question: 'How does streaming improve perceived performance?',
-      answer: `It allows partial UI to render while data loads, reducing TTFB and time to first content.`,
+      answer: `It allows partial UI to render while data loads, reducing TTFB (Time To First Byte) and time to first content.`,
       difficulty: 'hard',
     },
     {
