@@ -14,6 +14,8 @@ pnpm dev
 bun dev
 ```
 
+Open source project for everyone but first make sure it works on dev branch before deploying code to main branch
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
