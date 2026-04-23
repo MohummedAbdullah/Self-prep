@@ -24,6 +24,192 @@ export interface Topic {
 export const reactData = {
   technicalTerms: [
     {
+      term: 'React Query',
+      definition: 'A data-fetching library that manages server state, caching, and synchronization.',
+      category: 'Data Fetching',
+      importance: 'high',
+    },
+    {
+      term: 'Query Key',
+      definition: 'Unique identifier used by React Query to cache and refetch data.',
+      category: 'React Query',
+      importance: 'high',
+    },
+    {
+      term: 'Mutation',
+      definition: 'React Query operation used for creating/updating/deleting data.',
+      category: 'React Query',
+      importance: 'high',
+    },
+    {
+      term: 'Cache Invalidation',
+      definition: 'Marking cached data as stale to trigger refetching.',
+      category: 'React Query',
+      importance: 'high',
+    },
+    {
+      term: 'Optimistic Updates',
+      definition: 'Updating UI before server response for better UX.',
+      category: 'React Query',
+      importance: 'high',
+    },
+    {
+      term: 'Debouncing',
+      definition: 'Delaying function execution until after a specified delay.',
+      category: 'Performance',
+      importance: 'high',
+    },
+    {
+      term: 'Throttling',
+      definition: 'Limiting function execution to once per interval.',
+      category: 'Performance',
+      importance: 'medium',
+    },
+    {
+      term: 'useDebounce',
+      definition: 'Custom hook to debounce changing values.',
+      category: 'Hooks',
+      importance: 'high',
+    },
+    {
+      term: 'Inertia.js',
+      definition: 'A library that connects Laravel backend with React frontend without building APIs.',
+      category: 'Architecture',
+      importance: 'high',
+    },
+    {
+      term: 'Server-side Props',
+      definition: 'Data passed from Laravel controllers to React via Inertia.',
+      category: 'Inertia',
+      importance: 'high',
+    },
+    {
+      term: 'Partial Reload',
+      definition: 'Inertia feature to reload only specific data.',
+      category: 'Inertia',
+      importance: 'medium',
+    },
+    {
+      term: 'Form Handling (useForm)',
+      definition: 'Inertia hook for managing form state and submission.',
+      category: 'Inertia',
+      importance: 'high',
+    },
+    {
+      term: 'SSR (Server Side Rendering)',
+      definition: 'Rendering React components on server before sending to client.',
+      category: 'Rendering',
+      importance: 'high',
+    },
+    {
+      term: 'CSR (Client Side Rendering)',
+      definition: 'Rendering happens entirely in browser using JavaScript.',
+      category: 'Rendering',
+      importance: 'high',
+    },
+    {
+      term: 'Fiber',
+      definition: 'React’s internal reconciliation engine that enables incremental rendering and prioritization.',
+      category: 'Rendering',
+      importance: 'high',
+    },
+    {
+      term: 'Hydration',
+      definition: 'Attaching event listeners to server-rendered HTML on the client.',
+      category: 'SSR',
+      importance: 'high',
+    },
+    {
+      term: 'Server Components',
+      definition: 'Components that render on the server and send serialized output to the client.',
+      category: 'Architecture',
+      importance: 'high',
+    },
+    {
+      term: 'Client Components',
+      definition: 'Components that run in the browser and support interactivity.',
+      category: 'Architecture',
+      importance: 'high',
+    },
+    {
+      term: 'Code Splitting',
+      definition: 'Splitting bundles into smaller chunks loaded on demand using dynamic import.',
+      category: 'Performance',
+      importance: 'high',
+    },
+    {
+      term: 'Lazy Loading',
+      definition: 'Loading components only when needed using React.lazy and Suspense.',
+      category: 'Performance',
+      importance: 'high',
+    },
+    {
+      term: 'Prop Drilling',
+      definition: 'Passing props through many layers unnecessarily.',
+      category: 'State',
+      importance: 'medium',
+    },
+    {
+      term: 'Derived State',
+      definition: 'State computed from props or other state.',
+      category: 'State',
+      importance: 'medium',
+    },
+    {
+      term: 'Refs',
+      definition: 'Mutable references that persist across renders without causing re-renders.',
+      category: 'Core',
+      importance: 'high',
+    },
+    {
+      term: 'ForwardRef',
+      definition: 'Allows passing refs to child components.',
+      category: 'Core',
+      importance: 'medium',
+    },
+    {
+      term: 'Custom Hooks',
+      definition: 'Reusable logic extracted into functions using React hooks.',
+      category: 'Hooks',
+      importance: 'high',
+    },
+    {
+      term: 'Stale Closure',
+      definition: 'When a function captures outdated state due to missing dependencies.',
+      category: 'Hooks',
+      importance: 'high',
+    },
+    {
+      term: 'Event Delegation',
+      definition: 'React attaches events at root instead of individual nodes for performance.',
+      category: 'Rendering',
+      importance: 'medium',
+    },
+    {
+      term: 'Batching',
+      definition: 'Grouping multiple state updates into a single render.',
+      category: 'Performance',
+      importance: 'high',
+    },
+    {
+      term: 'Transition',
+      definition: 'A non-urgent state update using startTransition to keep UI responsive.',
+      category: 'Concurrent',
+      importance: 'high',
+    },
+    {
+      term: 'useTransition',
+      definition: 'Hook to manage deferred UI updates.',
+      category: 'Concurrent',
+      importance: 'high',
+    },
+    {
+      term: 'useDeferredValue',
+      definition: 'Delays updating a value to improve performance.',
+      category: 'Concurrent',
+      importance: 'medium',
+    },
+    {
       term: 'JSX',
       definition: 'A syntax extension that lets you write UI structure in JavaScript.',
       category: 'Core',
@@ -128,6 +314,126 @@ export const reactData = {
   ] as TechnicalTerm[],
 
   topics: [
+    {
+      title: 'React Query Basics',
+      description: 'Server state management',
+      content: `React Query handles fetching, caching, and updating server data efficiently.`,
+      code: `const { data, isLoading } = useQuery({
+      queryKey: ['users'],
+      queryFn: fetchUsers,
+    });`,
+      language: 'tsx',
+    },
+    {
+      title: 'Mutations & Optimistic Updates',
+      description: 'Updating server data',
+      content: `Mutations handle POST/PUT/DELETE with optional optimistic updates.`,
+      code: `const mutation = useMutation({
+      mutationFn: addUser,
+      onSuccess: () => queryClient.invalidateQueries(['users']),
+    });`,
+      language: 'tsx',
+    },
+    {
+      title: 'Debouncing Input',
+      description: 'Improve performance in search',
+      content: `Debouncing prevents excessive API calls.`,
+      code: `function useDebounce(value, delay) {
+      const [debounced, setDebounced] = useState(value);
+    
+      useEffect(() => {
+        const timer = setTimeout(() => setDebounced(value), delay);
+        return () => clearTimeout(timer);
+      }, [value]);
+    
+      return debounced;
+    }`,
+      language: 'tsx',
+    },
+    {
+      title: 'React + Laravel (Inertia)',
+      description: 'Full-stack without APIs',
+      content: `Inertia allows React frontend with Laravel backend seamlessly.`,
+      code: `// Laravel Controller
+    return Inertia::render('Users', {
+      users: User::all()
+    });`,
+      language: 'php',
+    },
+    {
+      title: 'Inertia Form Handling',
+      description: 'Handling forms without API',
+      content: `useForm simplifies form handling and submission.`,
+      code: `const { data, setData, post } = useForm({
+      name: '',
+    });
+    
+    post('/users');`,
+      language: 'tsx',
+    },
+    {
+      title: 'Custom Hooks',
+      description: 'Reusable logic abstraction',
+      content: `Custom hooks allow extracting reusable logic without affecting component hierarchy.`,
+      code: `function useCounter() {
+      const [count, setCount] = useState(0);
+      const increment = () => setCount(c => c + 1);
+      return { count, increment };
+    }`,
+      language: 'tsx',
+    },
+    {
+      title: 'Code Splitting & Lazy Loading',
+      description: 'Improve bundle performance',
+      content: `Split code using React.lazy and Suspense to reduce initial load time.`,
+      code: `const Dashboard = React.lazy(() => import('./Dashboard'));
+    
+    <Suspense fallback={<div>Loading...</div>}>
+      <Dashboard />
+    </Suspense>`,
+      language: 'tsx',
+    },
+    {
+      title: 'Refs & DOM Manipulation',
+      description: 'Access DOM without re-render',
+      content: `Refs store mutable values and access DOM nodes directly.`,
+      code: `const inputRef = useRef<HTMLInputElement>(null);
+    
+    const focus = () => inputRef.current?.focus();`,
+      language: 'tsx',
+    },
+    {
+      title: 'State Management Patterns',
+      description: 'Managing complex state',
+      content: `Use reducer pattern when state logic is complex.`,
+      code: `function reducer(state, action) {
+      switch (action.type) {
+        case 'increment':
+          return { count: state.count + 1 };
+        default:
+          return state;
+      }
+    }
+    
+    const [state, dispatch] = useReducer(reducer, { count: 0 });`,
+      language: 'tsx',
+    },
+    {
+      title: 'Concurrent Features',
+      description: 'Non-blocking UI updates',
+      content: `React allows prioritizing updates for better UX.`,
+      code: `const [isPending, startTransition] = useTransition();
+    
+    startTransition(() => {
+      setList(heavyComputation());
+    });`,
+      language: 'tsx',
+    },
+    {
+      title: 'Server vs Client Components',
+      description: 'Modern React architecture',
+      content: `Server components reduce bundle size and move logic to server.`,
+    },
     {
       title: 'Component Design',
       description: 'Reusable, composable UI',
@@ -281,6 +587,12 @@ useEffect(() => {
   ] as Topic[],
 
   questions: [
+
+    {
+      question: 'How does form submission work in Inertia?',
+      answer: `Forms are submitted using useForm hook which sends data to backend routes without page reload.`,
+      difficulty: 'easy',
+    },
     {
       question: 'What causes a component to re-render?',
       answer: `State changes, parent re-renders, or context updates can trigger renders.`,
@@ -303,9 +615,14 @@ useEffect(() => {
       difficulty: 'easy',
     },
     {
-      question: 'When would you use useMemo or useCallback?',
-      answer: `To memoize expensive computations or stable function references.`,
-      difficulty: 'medium',
+      question: 'What is prop drilling and how do you avoid it?',
+      answer: `Prop drilling is passing props deeply through components. Avoid using Context API or state management libraries.`,
+      difficulty: 'easy',
+    },
+    {
+      question: 'What is debouncing and when would you use it?',
+      answer: `Debouncing delays execution until user stops typing. Used in search inputs and API calls.`,
+      difficulty: 'easy',
     },
     {
       question: 'What is the difference between useEffect and useLayoutEffect? When would you choose one over the other?',
@@ -332,6 +649,127 @@ useEffect(() => {
       answer: `Error boundaries are class components implementing componentDidCatch or getDerivedStateFromError. They catch JavaScript errors in child components' render, lifecycle methods, and constructors. Cannot catch: event handlers (use try/catch), async code (setTimeout), server-side rendering, or errors in the error boundary itself. For functional components, use react-error-boundary library.`,
       difficulty: 'medium',
     },
+    {
+      question: 'What is the difference between useRef and useState?',
+      answer: `useState triggers re-renders when updated. useRef does not trigger re-renders and is used for mutable values or DOM references.`,
+      difficulty: 'medium',
+    },
+    {
+      question: 'Explain how useReducer differs from useState.',
+      answer: `useReducer is better for complex state logic and multiple state transitions. It uses a reducer function similar to Redux.`,
+      difficulty: 'medium',
+    },
+    {
+      question: 'How does React handle events differently from the DOM?',
+      answer: `React uses synthetic events and event delegation for better performance and cross-browser compatibility.`,
+      difficulty: 'medium',
+    },
+    {
+      question: 'What is hydration in React?',
+      answer: `Hydration attaches event listeners to server-rendered HTML instead of re-rendering it.`,
+      difficulty: 'medium',
+    },
+    {
+      question: 'What is the difference between CSR and SSR?',
+      answer: `CSR renders on client after JS loads. SSR renders HTML on server and improves SEO and initial load time.`,
+      difficulty: 'medium',
+    },
+
+    {
+      question: 'Why should you avoid inline functions in JSX?',
+      answer: `They create new references on each render, potentially causing unnecessary re-renders in child components.`,
+      difficulty: 'medium',
+    },
+    {
+      question: 'How do you prevent unnecessary API calls in React?',
+      answer: `Use proper dependency arrays, debounce inputs, cache responses, and use libraries like React Query.`,
+      difficulty: 'medium',
+    },
+    {
+      question: 'What are advantages of using Inertia with React?',
+      answer: `No API layer, faster development, shared routing, simpler architecture.`,
+      difficulty: 'medium',
+    },
+    {
+      question: 'What problems does React Query solve?',
+      answer: `Caching, deduplication, background refetching, pagination, and syncing server state.`,
+      difficulty: 'medium',
+    },
+    {
+      question: 'What is React Query and why use it instead of useEffect?',
+      answer: `React Query manages server state with caching, background updates, and avoids manual state handling. useEffect requires manual loading, error, and caching logic.`,
+      difficulty: 'medium',
+    },
+    {
+      question: 'What is the difference between server state and client state?',
+      answer: `Client state is local UI state (forms, toggles). Server state comes from APIs and needs caching, syncing, and refetching.`,
+      difficulty: 'medium',
+    },
+    {
+      question: 'Explain queryKey in React Query.',
+      answer: `queryKey uniquely identifies cached data. Changing the key triggers refetch.`,
+      difficulty: 'medium',
+    },
+    {
+      question: 'Difference between debouncing and throttling?',
+      answer: `Debouncing waits for inactivity. Throttling limits execution frequency.`,
+      difficulty: 'medium',
+    },
+    {
+      question: 'How many types of state exist in React?',
+      answer: `1. Local state (useState)
+    2. Global state (Context/Redux)
+    3. Server state (React Query)
+    4. URL state (query params)
+    5. Form state`,
+      difficulty: 'medium',
+    },
+    {
+      question: 'What is Inertia.js and how is it different from REST APIs?',
+      answer: `Inertia removes need for APIs by directly connecting backend to frontend via server responses.`,
+      difficulty: 'medium',
+    },
+    {
+      question: 'How do you prevent excessive API calls in search?',
+      answer: `Use debouncing, React Query caching, and query enabling/disabling.`,
+      difficulty: 'medium',
+    },
+    {
+      question: 'What is partial reload in Inertia?',
+      answer: `Reload only specific props instead of full page data.`,
+      difficulty: 'medium',
+    },
+    {
+      question: 'When would you use useMemo or useCallback?',
+      answer: `To memoize expensive computations or stable function references.`,
+      difficulty: 'medium',
+    },
+    {
+      question: 'What are common mistakes with useEffect dependencies?',
+      answer: `Missing dependencies cause stale closures. Over-specifying causes unnecessary runs. Functions and objects should be memoized.`,
+      difficulty: 'hard',
+    },
+    {
+      question: 'What is startTransition and when should you use it?',
+      answer: `It marks updates as non-urgent, allowing React to keep UI responsive during heavy updates.`,
+      difficulty: 'hard',
+    },
+    {
+      question: 'What are race conditions in React and how do you handle them?',
+      answer: `Race conditions occur when multiple async calls resolve out of order. Use abort controllers or track latest request.`,
+      difficulty: 'hard',
+    },
+    {
+      question: 'Explain controlled component performance issues.',
+      answer: `Frequent re-renders on each keystroke can degrade performance. Optimize using debouncing or splitting components.`,
+      difficulty: 'hard',
+    },
+    {
+      question: 'How would you design a scalable React app?',
+      answer: `Use modular architecture, custom hooks, proper state management, lazy loading, and separation of concerns.`,
+      difficulty: 'hard',
+    },
+
     {
       question: 'What is the difference between shallow rendering and full DOM rendering in React tests?',
       answer: `Shallow rendering (from Enzyme or React Testing Library shallow) renders only one component level deep, ignoring children — good for isolated unit tests. Full DOM rendering (mount with jsdom) renders entire component tree, necessary for testing interactions, lifecycle methods, and DOM APIs. Modern React Testing Library prefers full rendering to simulate real user behavior.`,
@@ -362,5 +800,31 @@ useEffect(() => {
       answer: `It helps surface side effects and ensures effects are resilient to re-mounting.`,
       difficulty: 'hard',
     },
+    {
+      question: 'What is React Fiber and why was it introduced?',
+      answer: `Fiber is React’s reconciliation algorithm that allows incremental rendering, prioritization, and interruption of rendering work. It improves performance and enables concurrent features.`,
+      difficulty: 'hard',
+    },
+    {
+      question: 'How do you debug performance issues in React?',
+      answer: `Use React DevTools Profiler, check re-render causes, memoize components, and analyze dependency arrays.`,
+      difficulty: 'hard',
+    },
+    {
+      question: 'Explain stale time and cache time in React Query.',
+      answer: `staleTime defines freshness duration. cacheTime defines how long unused data stays in cache.`,
+      difficulty: 'hard',
+    },
+    {
+      question: 'How would you structure a React + Laravel app?',
+      answer: `Use Laravel for backend logic, Inertia for routing, React for UI, and shared props for data.`,
+      difficulty: 'hard',
+    },
+    {
+      question: 'What are optimistic updates?',
+      answer: `UI updates before server response to improve UX. If request fails, rollback is required.`,
+      difficulty: 'hard',
+    },
+
   ] as InterviewQuestion[],
 };
