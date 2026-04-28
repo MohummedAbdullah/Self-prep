@@ -54,9 +54,11 @@ export const reactData = {
     },
     {
       term: "Optimizing",
-      definition:
-        "Traditional function declaration/expression with own this binding. Can be used as constructors with new keyword.",
-      category: "JavaScript",
+      definition: `Fix unnecessary re-renders. Code splitting. Optimize state management. Virtualize long lists. 
+          Avoid heavy work in render. Optimize images and assets. Use production build. Analyze performance properly.
+          Reduce bundle size. Server-side or static rendering
+        `,
+      category: "Optimizing",
       importance: "high",
     },
     {
