@@ -2,8 +2,13 @@ import { ModuleLayout } from '../components/ModuleLayout';
 import { TopicCard } from '../components/TopicCard';
 import { QuestionAccordion } from '../components/QuestionAccordion';
 import { expressData } from './data';
+import { sortByDifficultyHardFirst, sortByImportanceHardFirst, sortTopicsHardFirst } from '../lib/rank';
 
 export default function Page() {
+  const technicalTerms = [...expressData.technicalTerms].sort(sortByImportanceHardFirst);
+  const topics = [...expressData.topics].sort(sortTopicsHardFirst);
+  const questions = [...expressData.questions].sort(sortByDifficultyHardFirst);
+
   return (
     <ModuleLayout
       title="Express.js"
@@ -43,7 +48,7 @@ export default function Page() {
       <section id="technical-terms" className="mb-12">
         <h2 className="text-2xl font-bold text-white mb-6">Technical Terms Glossary</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {expressData.technicalTerms.map((term) => (
+          {technicalTerms.map((term) => (
             <div
               key={term.term}
               className="bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-stone-500/30 transition-colors"
@@ -72,7 +77,7 @@ export default function Page() {
       <section id="topics" className="mb-12">
         <h2 className="text-2xl font-bold text-white mb-6">Key Topics</h2>
         <div className="space-y-6">
-          {expressData.topics.map((topic, index) => (
+          {topics.map((topic, index) => (
             <TopicCard
               key={topic.title}
               index={index}
@@ -106,7 +111,7 @@ export default function Page() {
         </div>
 
         <div className="space-y-3">
-          {expressData.questions.map((question, index) => (
+          {questions.map((question, index) => (
             <QuestionAccordion key={`${question.question}-${index}`} question={question} index={index} />
           ))}
         </div>

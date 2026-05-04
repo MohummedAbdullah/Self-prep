@@ -51,24 +51,55 @@ export function CodeBlock({
       .replace(/>/g, '&gt;');
     
     // Combine all patterns into one replacement with a callback
-    const patterns = [
-      { regex: /(\/\/.*$|\/\*[\s\S]*?\*\/)/gm, class: 'text-slate-500', getMatch: (m: string) => m },
-      { regex: /(['"`])(.*?)(?<!\\)\1/g, class: 'text-green-400', getMatch: (m: string, p1: string, p2: string) => `${p1}${p2}${p1}` },
-      { regex: /\b(const|let|var|function|return|if|else|for|while|switch|case|break|import|export|from|class|interface|type|extends|implements|new|this|async|await|try|catch|throw|typeof|instanceof)\b/g, class: 'text-pink-400', getMatch: (m: string, p1: string) => p1 },
-      { regex: /\b([a-zA-Z_$][a-zA-Z0-9_$]*)\s*(?=\()/g, class: 'text-cyan-400', getMatch: (m: string, p1: string) => p1 },
-      { regex: /\b\d+\b/g, class: 'text-orange-400', getMatch: (m: string) => m },
-      { regex: /\b([A-Z][a-zA-Z0-9_$]*)\b/g, class: 'text-yellow-400', getMatch: (m: string, p1: string) => p1 },
+    type HighlightPattern = {
+      regex: RegExp;
+      className: string;
+      getContent: (match: string, groups: unknown[]) => string;
+    };
+
+    const patterns: HighlightPattern[] = [
+      {
+        regex: /(\/\/.*$|\/\*[\s\S]*?\*\/)/gm,
+        className: 'text-slate-500',
+        getContent: (match) => match,
+      },
+      {
+        regex: /(['"`])(.*?)(?<!\\)\1/g,
+        className: 'text-green-400',
+        getContent: (_match, groups) => `${groups[0] ?? ''}${groups[1] ?? ''}${groups[0] ?? ''}`,
+      },
+      {
+        regex: /\b(const|let|var|function|return|if|else|for|while|switch|case|break|import|export|from|class|interface|type|extends|implements|new|this|async|await|try|catch|throw|typeof|instanceof)\b/g,
+        className: 'text-pink-400',
+        getContent: (_match, groups) => String(groups[0] ?? ''),
+      },
+      {
+        regex: /\b([a-zA-Z_$][a-zA-Z0-9_$]*)\s*(?=\()/g,
+        className: 'text-cyan-400',
+        getContent: (_match, groups) => String(groups[0] ?? ''),
+      },
+      {
+        regex: /\b\d+\b/g,
+        className: 'text-orange-400',
+        getContent: (match) => match,
+      },
+      {
+        regex: /\b([A-Z][a-zA-Z0-9_$]*)\b/g,
+        className: 'text-yellow-400',
+        getContent: (_match, groups) => String(groups[0] ?? ''),
+      },
     ];
     
     let result = escaped;
-    for (const { regex, class: className, getMatch } of patterns) {
+    for (const { regex, className, getContent } of patterns) {
       result = result.replace(regex, (match, ...args) => {
         // Don't replace if already inside HTML tag
         const beforeMatch = result.substring(0, result.indexOf(match));
         if (beforeMatch.includes('<span') && !beforeMatch.includes('</span>')) {
           return match;
         }
-        const content = getMatch(match, ...args);
+        const captureGroups = args.slice(0, Math.max(0, args.length - 2));
+        const content = getContent(match, captureGroups);
         return `<span class="${className}">${content}</span>`;
       });
     }
