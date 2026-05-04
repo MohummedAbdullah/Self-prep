@@ -2,8 +2,13 @@ import { ModuleLayout } from '../components/ModuleLayout';
 import { TopicCard } from '../components/TopicCard';
 import { QuestionAccordion } from '../components/QuestionAccordion';
 import { htmlCssData } from '../data/html-css-data';
+import { sortByDifficultyHardFirst, sortByImportanceHardFirst, sortTopicsHardFirst } from '../lib/rank';
 
 export default function HtmlCssPage() {
+  const technicalTerms = [...htmlCssData.technicalTerms].sort(sortByImportanceHardFirst);
+  const topics = [...htmlCssData.topics].sort(sortTopicsHardFirst);
+  const questions = [...htmlCssData.questions].sort(sortByDifficultyHardFirst);
+
   return (
     <ModuleLayout
       title="HTML & CSS"
@@ -47,7 +52,7 @@ export default function HtmlCssPage() {
       <section id="technical-terms" className="mb-12">
         <h2 className="text-2xl font-bold text-white mb-6">Technical Terms Glossary</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {htmlCssData.technicalTerms.map((term) => (
+          {technicalTerms.map((term) => (
             <div
               key={term.term}
               className="bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-orange-500/30 transition-colors"
@@ -79,7 +84,7 @@ export default function HtmlCssPage() {
       <section id="topics" className="mb-12">
         <h2 className="text-2xl font-bold text-white mb-6">Key Topics</h2>
         <div className="space-y-6">
-          {htmlCssData.topics.map((topic, index) => (
+          {topics.map((topic, index) => (
             <TopicCard
               key={topic.title}
               index={index}
@@ -114,7 +119,7 @@ export default function HtmlCssPage() {
         </div>
 
         <div className="space-y-3">
-          {htmlCssData.questions.map((question, index) => (
+          {questions.map((question, index) => (
             <QuestionAccordion key={`${question.question}-${index}`} question={question} index={index} />
           ))}
         </div>

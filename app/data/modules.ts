@@ -17,6 +17,15 @@ export const modules: Module[] = [
     category: 'generic',
   },
   {
+    id: 'web-fundamentals',
+    name: 'Web Fundamentals',
+    description:
+      'HTTP, auth (OAuth/OIDC/JWT), cookies vs sessions, CORS, realtime (WebSockets), security basics, and database/storage fundamentals.',
+    path: '/web-fundamentals',
+    icon: '🌐',
+    category: 'fullstack',
+  },
+  {
     id: 'html-css',
     name: 'HTML & CSS',
     description: 'Semantic HTML, CSS fundamentals, Flexbox, Grid, responsive design, and modern styling techniques.',

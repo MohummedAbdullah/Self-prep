@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { CodeBlock } from './CodeBlock';
 import { QuestionAccordion } from './QuestionAccordion';
 import type { InterviewQuestion } from '../data/modules';
+import { sortByDifficultyHardFirst } from '../lib/rank';
 
 interface TopicCardProps {
   title: string;
@@ -132,7 +133,7 @@ export function TopicCard({
                 Interview Questions ({questions.length})
               </h4>
               <div className="space-y-3">
-                {questions.map((q, idx) => (
+                {[...questions].sort(sortByDifficultyHardFirst).map((q, idx) => (
                   <QuestionAccordion key={idx} question={q} index={idx} />
                 ))}
               </div>

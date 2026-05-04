@@ -1,19 +1,19 @@
 import { ModuleLayout } from '../components/ModuleLayout';
 import { TopicCard } from '../components/TopicCard';
 import { QuestionAccordion } from '../components/QuestionAccordion';
-import { javascriptData } from './data';
+import { webFundamentalsData } from './data';
 import { sortByDifficultyHardFirst, sortByImportanceHardFirst, sortTopicsHardFirst } from '../lib/rank';
 
 export default function Page() {
-  const technicalTerms = [...javascriptData.technicalTerms].sort(sortByImportanceHardFirst);
-  const topics = [...javascriptData.topics].sort(sortTopicsHardFirst);
-  const questions = [...javascriptData.questions].sort(sortByDifficultyHardFirst);
+  const technicalTerms = [...webFundamentalsData.technicalTerms].sort(sortByImportanceHardFirst);
+  const topics = [...webFundamentalsData.topics].sort(sortTopicsHardFirst);
+  const questions = [...webFundamentalsData.questions].sort(sortByDifficultyHardFirst);
 
   return (
     <ModuleLayout
-      title="JavaScript"
-      description="Core JavaScript concepts, ES6+ features, async programming, and browser fundamentals"
-      icon="⚡"
+      title="Web Fundamentals"
+      description="HTTP, auth, security, CORS, realtime, and database foundations for full-stack interviews"
+      icon="🌐"
       sections={[
         { id: 'overview', title: 'Overview' },
         { id: 'technical-terms', title: 'Technical Terms' },
@@ -22,24 +22,25 @@ export default function Page() {
       ]}
     >
       <section id="overview" className="mb-12">
-        <div className="bg-gradient-to-br from-amber-500/10 to-orange-500/10 border border-amber-500/20 rounded-2xl p-8">
-          <h2 className="text-2xl font-bold text-white mb-4">Why JavaScript Matters</h2>
+        <div className="bg-gradient-to-br from-cyan-500/10 to-sky-500/10 border border-cyan-500/20 rounded-2xl p-8">
+          <h2 className="text-2xl font-bold text-white mb-4">Why Web Fundamentals Matter</h2>
           <p className="text-slate-300 mb-4">
-            This module focuses on the fundamentals and interview-critical concepts for JavaScript. Use it to build
-            strong mental models, sharpen terminology, and practice common interview questions.
+            This module focuses on the concepts that show up everywhere: HTTP, auth, cookies, CORS, realtime
+            communication, and database fundamentals. These are common interview topics and real-world debugging
+            hotspots.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
             <div className="bg-slate-900/50 rounded-lg p-4">
-              <h3 className="font-semibold text-amber-400 mb-2">Concepts</h3>
-              <p className="text-sm text-slate-400">Core ideas and patterns you will use daily</p>
+              <h3 className="font-semibold text-cyan-400 mb-2">Debug Faster</h3>
+              <p className="text-sm text-slate-400">CORS, cookies, proxies, and headers</p>
             </div>
             <div className="bg-slate-900/50 rounded-lg p-4">
-              <h3 className="font-semibold text-amber-400 mb-2">Practical Skills</h3>
-              <p className="text-sm text-slate-400">Hands-on knowledge for real projects</p>
+              <h3 className="font-semibold text-cyan-400 mb-2">Design Better APIs</h3>
+              <p className="text-sm text-slate-400">HTTP semantics, status codes, security</p>
             </div>
             <div className="bg-slate-900/50 rounded-lg p-4">
-              <h3 className="font-semibold text-amber-400 mb-2">Interview Focus</h3>
-              <p className="text-sm text-slate-400">Typical questions and expected depth</p>
+              <h3 className="font-semibold text-cyan-400 mb-2">Scale Confidently</h3>
+              <p className="text-sm text-slate-400">Caching, rate limiting, DB tradeoffs</p>
             </div>
           </div>
         </div>
@@ -51,9 +52,9 @@ export default function Page() {
           {technicalTerms.map((term) => (
             <div
               key={term.term}
-              className="bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-amber-500/30 transition-colors"
+              className="bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-cyan-500/30 transition-colors"
             >
-              <h3 className="text-lg font-semibold text-amber-400 mb-2">{term.term}</h3>
+              <h3 className="text-lg font-semibold text-cyan-400 mb-2">{term.term}</h3>
               <p className="text-slate-300 text-sm leading-relaxed">{term.definition}</p>
               <div className="mt-3 flex items-center gap-2">
                 <span className="text-xs px-2 py-1 bg-slate-800 text-slate-400 rounded">{term.category}</span>
@@ -119,3 +120,4 @@ export default function Page() {
     </ModuleLayout>
   );
 }
+
