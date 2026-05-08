@@ -1,7 +1,7 @@
 import { ModuleLayout } from '../components/ModuleLayout';
 import { TopicCard } from '../components/TopicCard';
 import { QuestionAccordion } from '../components/QuestionAccordion';
-import { htmlCssData } from '../data/html-css-data';
+import { htmlCssData } from './data';
 import { sortByDifficultyHardFirst, sortByImportanceHardFirst, sortTopicsHardFirst } from '../lib/rank';
 
 export default function HtmlCssPage() {

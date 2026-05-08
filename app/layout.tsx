@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Interview Learning App",
-  description: "Prepare your interview",
+  title: "Mastering the Interview",
+  description: " A Comprehensive Guide to Prepare for Your Job Interview",
 };
 
 export default function RootLayout({

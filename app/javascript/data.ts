@@ -200,6 +200,44 @@ const sorted = [...numbers].sort();`,
 
   questions: [
     {
+      question: 'what are template strings and when to use it?',
+      answer: `Template strings (template literals) are a feature in JavaScript that allow for easier string interpolation and multi-line strings. They are enclosed by backticks (\`) instead of single or double quotes.
+
+        **Key Features:**
+
+        1. **String Interpolation:**
+        - Embed expressions inside strings using \`\${expression}\`
+        - No need for concatenation with + operator
+        \`\`\javascript
+        const name = "Alice";
+        const greeting = \`Hello, \${name}!\`; // "Hello, Alice!"
+        \`\`\`
+
+        2. **Multi-line Strings:**
+        - Preserve line breaks and whitespace without needing \n
+        \`\`\javascript
+        const message = \`This is a multi-line
+        string that preserves formatting.\`;
+        \`\`\`
+
+        3. **Tagged Templates:**
+        - Custom processing of template literals with a function
+        \`\`\javascript
+        function tag(strings, ...values) {
+          // Custom processing logic
+        }
+
+        tag\`Hello, \${name}!\`;
+        \`\`\`
+
+        **When to Use Template Strings:**
+        - When you need to include variables or expressions in strings
+        - For multi-line strings without concatenation
+        - When you want to create more readable and maintainable string templates
+        - For complex string formatting with tagged templates`,
+              difficulty: 'medium',  
+            },
+    {
       question: 'What is a closure and why is it useful?',
       answer: `A closure lets a function remember variables from its defining scope.`,
       difficulty: 'easy',
@@ -213,6 +251,15 @@ const sorted = [...numbers].sort();`,
       question: 'What is the difference between == and ===?',
       answer: `== coerces types before comparison, while === compares type and value.`,
       difficulty: 'easy',
+    },
+    {
+      question:'Render a <p> element without using JSX',
+      answer: `here adding p in inverted commas enforce it:
+      const paragraph = React.createElement('p' , {}, 'This is a paragraph.');
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(paragraph);`
+      ,
+      difficulty: 'hard',
     },
     {
       question: 'How does this binding change across call, apply, and arrow functions?',
