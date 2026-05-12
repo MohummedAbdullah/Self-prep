@@ -180,9 +180,20 @@ worker.on("message", (msg) => console.log(msg));`,
 
   questions: [
     {
-      question: 'What is the event loop?',
-      answer: `It is the mechanism that handles async operations and callback execution.`,
-      difficulty: 'easy',
+      question: 'Explain the event loop and microtasks.',
+      answer: `The event loop processes the call stack, then microtasks, then macrotasks.
+      V8( Google's open-source JavaScript engine) executes synchronous code on the call stack
+
+      Async APIs are passed to libuv (Node's event loop library)
+
+      libuv manages timers, I/O, and thread pool operations
+
+      The event loop runs 6 phases repeatedly: timers → pending callbacks → poll → check → close
+
+      Microtasks (Promise callbacks) run between EVERY phase
+
+      The poll phase blocks for I/O when no timers are pending, but microtasks run immediately after each phase regardless of I/O state.`,
+      difficulty: 'hard',
     },
     {
       question: 'Why use streams?',
@@ -191,7 +202,7 @@ worker.on("message", (msg) => console.log(msg));`,
     },
     {
       question: 'How would you scale a Node app?',
-      answer: `Use clustering, load balancers, and horizontal scaling.`,
+      answer: `Use clustering,indexing, load balancers, and horizontal scaling.`,
       difficulty: 'medium',
     },
     {

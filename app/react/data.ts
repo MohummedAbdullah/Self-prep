@@ -83,40 +83,6 @@ export const reactData = {
       importance: "high",
     },
     {
-      term: "Memoization",
-      definition: "Avoiding expensive recomputation with useMemo/useCallback.",
-      category: "Performance",
-      importance: "high",
-    },
-    {
-      term: "React.memo",
-      definition:
-        "Higher-order component that memoizes entire component renders based on props.",
-      category: "Performance",
-      importance: "high",
-    },
-    {
-      term: "useMemo",
-      definition:
-        "Memoizes computed values; recalculates only when dependencies change.",
-      category: "Performance",
-      importance: "high",
-    },
-    {
-      term: "useCallback",
-      definition:
-        "Memoizes function references; prevents function recreation on re-renders.",
-      category: "Performance",
-      importance: "high",
-    },
-    {
-      term: "useEffect",
-      definition:
-        "Runs side effects asynchronously after paint; non-blocking for UI.",
-      category: "Hooks",
-      importance: "high",
-    },
-    {
       term: "Mutation",
       definition:
         "React Query operation used for creating/updating/deleting data.",
@@ -125,7 +91,7 @@ export const reactData = {
     },
     {
       term: "Cache Invalidation",
-      definition: "Marking cached data as stale to trigger refetching.",
+      definition: "Cache refresh strategy after data changes, often via queryClient.invalidateQueries.",
       category: "React Query",
       importance: "high",
     },
@@ -133,6 +99,56 @@ export const reactData = {
       term: "Optimistic Updates",
       definition: "Updating UI before server response for better UX.",
       category: "React Query",
+      importance: "high",
+    },
+    {
+      term: "Memoization",
+      definition: "Avoiding expensive recomputation with useMemo/useCallback.",
+      category: "Performance",
+      importance: "high",
+    },
+    {
+      term: "React.memo",
+      definition:
+        "Higher-order component that Prevents a component from re-rendering if its props haven't changed.Renders on change of props.Targets entire function component.",
+      category: "Performance",
+      importance: "high",
+    },
+    {
+      term: "useMemo",
+      definition:
+        "React Hook that Memoizes computed values; It memoize the value or result of a function. Triggers on change of dependency array.",
+      category: "Performance",
+      importance: "high",
+    },
+    {
+      question: 'Explain the event loop and microtasks.',
+      answer: `The event loop processes the call stack, then microtasks, then macrotasks.
+      V8( Google's open-source JavaScript engine) executes synchronous code on the call stack
+
+      Async APIs are passed to libuv (Node's event loop library)
+
+      libuv manages timers, I/O, and thread pool operations
+
+      The event loop runs 6 phases repeatedly: timers → pending callbacks → poll → check → close
+
+      Microtasks (Promise callbacks) run between EVERY phase
+
+      The poll phase blocks for I/O when no timers are pending, but microtasks run immediately after each phase regardless of I/O state.`,
+      difficulty: 'hard',
+    },
+    {
+      term: "useCallback",
+      definition:
+        "Memoizes function references; prevents function recreation on re-renders.It memoize function instance itself.Triggers on change of dependency array.",
+      category: "Performance",
+      importance: "high",
+    },
+    {
+      term: "useEffect",
+      definition:
+        "Runs side effects asynchronously after paint; non-blocking for UI.",
+      category: "Hooks",
       importance: "high",
     },
     {
@@ -924,23 +940,83 @@ useEffect(() => {
       difficulty: "medium",
     },
     {
+      question: "What is the difference between Component and function?",
+      answer: `Component is a React element that returns JSX. A function is a JavaScript function that may or may not return JSX. Components are used to build UI, while functions can be utilities, hooks, or any logic.`,
+      difficulty: "medium",
+    },
+    {
       question: "Explain queryKey in React Query.",
       answer: `queryKey uniquely identifies cached data. Changing the key triggers refetch.`,
       difficulty: "medium",
     },
     {
       question: "Difference between debouncing and throttling?",
-      answer: `Debouncing waits for inactivity. Throttling limits execution frequency.`,
+      answer: `Debouncing delays execution until user stops triggering. Throttling limits execution to once per interval.`,
       difficulty: "medium",
     },
     {
       question: "How many types of state exist in React?",
       answer: `1. Local state (useState)
-    2. Global state (Context/Redux)
-    3. Server state (React Query)
-    4. URL state (query params)
-    5. Form state`,
-      difficulty: "medium",
+      2. Global state (Context/Redux)
+      3. Server state (React Query)
+      4. URL state (query params)
+      5. Form state
+      6. Derived state (computed from props or other state)
+      7. Optimistic state (useOptimistic)
+      8. External state (useSyncExternalStore)
+      9. Transition state (useTransition)
+      10. Deferred state (useDeferredValue)
+      11. ID state (useId)
+      12. Layout state (useLayoutEffect)
+      13. Error state (Error Boundaries)
+      14. Suspense state (Suspense boundaries)
+      15. Portal state (Portals)
+      16. Ref state (useRef)
+      17. Context state (useContext)
+      18. Reducer state (useReducer)
+      19. Memoized state (useMemo)
+      20. Callback state (useCallback)
+      21. Stale state (stale closures)
+      22. Batching state (batched updates)
+      23. Concurrent state (startTransition, useTransition)
+      24. Optimistic state (useOptimistic)
+      25. user input state (controlled components)
+      26. DOM state (useLayoutEffect for measurements)
+      27. useEffect state (side effects and subscriptions)
+      28. useInsertionEffect state (CSS-in-JS libraries)
+      `,
+      difficulty: "hard",
+    },
+    {
+      question: "Explain each types of states that exist in React?",
+      answer: `
+      local state (useState): component-level state for UI interactions.
+      global state (Context/Redux): shared state across components.
+      server state (React Query): data from APIs with caching and syncing.
+      URL state: query params and route params.
+      form state: input values and validation.
+      derived state: computed from props or other state.
+      optimistic state: shows expected result before async completion (useOptimistic).
+      external state: subscribes to external stores (useSyncExternalStore).
+      transition state: non-urgent updates (startTransition, useTransition).
+      deferred state: delayed updates for responsiveness (useDeferredValue).
+      ID state: stable unique IDs for accessibility (useId).
+      layout state: measurements before paint (useLayoutEffect).
+      error state: caught by Error Boundaries.
+      suspense state: loading states in Suspense boundaries.
+      portal state: rendered outside parent DOM hierarchy (Portals).
+      ref state: mutable values that persist across renders (useRef).
+      context state: consumed from Context providers (use Context).
+      reducer state: complex state logic with useReducer.
+      memoized state: expensive calculations memoized with useMemo.
+      callback state: stable function references with useCallback.
+      stale state: outdated values due to missing dependencies (stale closures).
+      batching state: multiple updates batched together for performance.
+      concurrent state: updates that can be interrupted (startTransition, useTransition).
+      Dom state: measurements and manipulations of the DOM (useLayoutEffect).
+      stale State: 
+      `,
+      difficulty: "hard",
     },
     {
       question: "What is Inertia.js and how is it different from REST APIs?",

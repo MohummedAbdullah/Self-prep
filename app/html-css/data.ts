@@ -2,7 +2,7 @@ export interface TechnicalTerm {
   term: string;
   definition: string;
   category: string;
-  importance: 'high' | 'medium' | 'low';
+  importance: "high" | "medium" | "low";
 }
 
 export interface Topic {
@@ -22,131 +22,150 @@ export interface Topic {
 export interface Question {
   question: string;
   answer: string;
-  difficulty: 'easy' | 'medium' | 'hard';
+  difficulty: "easy" | "medium" | "hard";
 }
 
 export const htmlCssData = {
   technicalTerms: [
     {
-      term: 'DOM (Document Object Model)',
-      definition: 'A programming interface for web documents that represents the page structure as a tree of objects, allowing scripts to manipulate content, structure, and styles dynamically.',
-      category: 'Core Concepts',
-      importance: 'high'
+      term: "DOM (Document Object Model)",
+      definition:
+        "A programming interface for web documents that represents the page structure as a tree of objects, allowing scripts to manipulate content, structure, and styles dynamically.",
+      category: "Core Concepts",
+      importance: "high",
     },
     {
-      term: 'Semantic HTML',
-      definition: 'Using HTML elements that convey meaning about the content (like <header>, <nav>, <article>) rather than purely presentational elements, improving accessibility and SEO.',
-      category: 'HTML',
-      importance: 'high'
+      term: "Semantic HTML",
+      definition:
+        "Using HTML elements that convey meaning about the content (like <header>, <nav>, <article>) rather than purely presentational elements, improving accessibility and SEO.",
+      category: "HTML",
+      importance: "high",
     },
     {
-      term: 'CSS Specificity',
-      definition: 'The algorithm browsers use to determine which CSS rule applies when multiple rules target the same element. Calculated as (ID selectors, class selectors, type selectors).',
-      category: 'CSS',
-      importance: 'high'
+      term: "CSS Specificity",
+      definition:
+        "The algorithm browsers use to determine which CSS rule applies when multiple rules target the same element. Calculated as (ID selectors, class selectors, type selectors).",
+      category: "CSS",
+      importance: "high",
     },
     {
-      term: 'Box Model',
-      definition: 'The rectangular boxes generated for elements consisting of content, padding, border, and margin. Understanding it is crucial for layout control.',
-      category: 'CSS',
-      importance: 'high'
+      term: "Box Model",
+      definition:
+        "The rectangular boxes generated for elements consisting of content, padding, border, and margin. Understanding it is crucial for layout control.",
+      category: "CSS",
+      importance: "high",
     },
     {
-      term: 'Flexbox',
-      definition: 'A one-dimensional layout method for arranging items in rows or columns with powerful alignment and distribution capabilities.',
-      category: 'CSS Layout',
-      importance: 'high'
+      term: "Flexbox",
+      definition:
+        "A one-dimensional layout method for arranging items in rows or columns with powerful alignment and distribution capabilities.",
+      category: "CSS Layout",
+      importance: "high",
     },
     {
-      term: 'CSS Grid',
-      definition: 'A two-dimensional layout system for handling both rows and columns simultaneously, enabling complex grid-based layouts.',
-      category: 'CSS Layout',
-      importance: 'high'
+      term: "CSS Grid",
+      definition:
+        "A two-dimensional layout system for handling both rows and columns simultaneously, enabling complex grid-based layouts.",
+      category: "CSS Layout",
+      importance: "high",
     },
     {
-      term: 'Media Queries',
-      definition: 'CSS technique using @media rule to apply styles based on device characteristics like viewport width, enabling responsive design.',
-      category: 'Responsive Design',
-      importance: 'high'
+      term: "Media Queries",
+      definition:
+        "CSS technique using @media rule to apply styles based on device characteristics like viewport width, enabling responsive design.",
+      category: "Responsive Design",
+      importance: "high",
     },
     {
-      term: 'Viewport',
-      definition: 'The visible area of a web page on a device. The viewport meta tag controls layout on mobile browsers.',
-      category: 'Responsive Design',
-      importance: 'high'
+      term: "Viewport",
+      definition:
+        "The visible area of a web page on a device. The viewport meta tag controls layout on mobile browsers.",
+      category: "Responsive Design",
+      importance: "high",
     },
     {
-      term: 'z-index',
-      definition: 'CSS property controlling the vertical stacking order of positioned elements. Higher values appear in front of lower values.',
-      category: 'CSS',
-      importance: 'medium'
+      term: "z-index",
+      definition:
+        "CSS property controlling the vertical stacking order of positioned elements. Higher values appear in front of lower values.",
+      category: "CSS",
+      importance: "medium",
     },
     {
-      term: 'Pseudo-classes',
-      definition: 'Keywords added to selectors that specify a special state (e.g., :hover, :focus, :nth-child) to style elements under certain conditions.',
-      category: 'CSS',
-      importance: 'medium'
+      term: "Pseudo-classes",
+      definition:
+        "Keywords added to selectors that specify a special state (e.g., :hover, :focus, :nth-child) to style elements under certain conditions.",
+      category: "CSS",
+      importance: "medium",
     },
     {
-      term: 'Pseudo-elements',
-      definition: 'Keywords allowing you to style specific parts of an element (e.g., ::before, ::after, ::first-letter) or insert content.',
-      category: 'CSS',
-      importance: 'medium'
+      term: "Pseudo-elements",
+      definition:
+        "Keywords allowing you to style specific parts of an element (e.g., ::before, ::after, ::first-letter) or insert content.",
+      category: "CSS",
+      importance: "medium",
     },
     {
-      term: 'ARIA (Accessible Rich Internet Applications)',
-      definition: 'A set of attributes that define ways to make web content more accessible to people with disabilities, especially those using screen readers.',
-      category: 'Accessibility',
-      importance: 'high'
+      term: "ARIA (Accessible Rich Internet Applications)",
+      definition:
+        "A set of attributes that define ways to make web content more accessible to people with disabilities, especially those using screen readers.",
+      category: "Accessibility",
+      importance: "high",
     },
     {
-      term: 'CSS Variables (Custom Properties)',
-      definition: 'Entities defined by CSS authors containing specific values to be reused throughout a document, declared with -- prefix and accessed with var().',
-      category: 'CSS',
-      importance: 'medium'
+      term: "CSS Variables (Custom Properties)",
+      definition:
+        "Entities defined by CSS authors containing specific values to be reused throughout a document, declared with -- prefix and accessed with var().",
+      category: "CSS",
+      importance: "medium",
     },
     {
-      term: 'Critical CSS',
-      definition: 'The CSS needed to render above-the-fold content, inlined in the HTML head to improve perceived page load performance.',
-      category: 'Performance',
-      importance: 'medium'
+      term: "Critical CSS",
+      definition:
+        "The CSS needed to render above-the-fold content, inlined in the HTML head to improve perceived page load performance.",
+      category: "Performance",
+      importance: "medium",
     },
     {
-      term: 'BEM (Block Element Modifier)',
-      definition: 'A naming convention methodology for CSS classes that creates reusable components and code sharing in front-end development.',
-      category: 'Methodology',
-      importance: 'medium'
+      term: "BEM (Block Element Modifier)",
+      definition:
+        "A naming convention methodology for CSS classes that creates reusable components and code sharing in front-end development.",
+      category: "Methodology",
+      importance: "medium",
     },
     {
-      term: 'Stacking Context',
-      definition: 'A 3D conceptualization of HTML elements where z-index only works within the same stacking context.',
-      category: 'CSS',
-      importance: 'high'
+      term: "Stacking Context",
+      definition:
+        "A 3D conceptualization of HTML elements where z-index only works within the same stacking context.",
+      category: "CSS",
+      importance: "high",
     },
     {
-      term: 'Accessibility Tree',
-      definition: 'The semantic representation of the DOM used by assistive technologies like screen readers.',
-      category: 'Accessibility',
-      importance: 'medium'
+      term: "Accessibility Tree",
+      definition:
+        "The semantic representation of the DOM used by assistive technologies like screen readers.",
+      category: "Accessibility",
+      importance: "medium",
     },
     {
-      term: 'Cascade Layers',
-      definition: 'A CSS feature that lets you define explicit layer ordering with @layer to control the cascade.',
-      category: 'CSS',
-      importance: 'medium'
+      term: "Cascade Layers",
+      definition:
+        "A CSS feature that lets you define explicit layer ordering with @layer to control the cascade.",
+      category: "CSS",
+      importance: "medium",
     },
     {
-      term: 'Container Queries',
-      definition: 'Style elements based on their container size rather than the viewport.',
-      category: 'Responsive Design',
-      importance: 'medium'
-    }
+      term: "Container Queries",
+      definition:
+        "Style elements based on their container size rather than the viewport.",
+      category: "Responsive Design",
+      importance: "medium",
+    },
   ] as TechnicalTerm[],
 
   topics: [
     {
-      title: 'CSS Specificity Hierarchy',
-      description: 'Understanding how browsers calculate which styles to apply',
+      title: "CSS Specificity Hierarchy",
+      description: "Understanding how browsers calculate which styles to apply",
       content: `CSS specificity follows a hierarchy where more specific selectors override less specific ones:
 
 **Specificity Calculation:** (ID selectors, Class selectors, Type selectors)
@@ -180,11 +199,11 @@ nav.header { color: green; }
 
 /* Inline style: 1,0,0,0 - overrides everything */
 <div style="color: orange">Content</div>`,
-      language: 'css'
+      language: "css",
     },
     {
-      title: 'Flexbox Layout',
-      description: 'One-dimensional layout system for rows or columns',
+      title: "Flexbox Layout",
+      description: "One-dimensional layout system for rows or columns",
       content: `Flexbox is designed for one-dimensional layouts—either a row or a column. It provides powerful alignment capabilities and is perfect for components and small-scale layouts.
 
 **Key Properties:**
@@ -228,11 +247,11 @@ nav.header { color: green; }
   align-items: center;
   min-height: 100vh;
 }`,
-      language: 'css'
+      language: "css",
     },
     {
-      title: 'CSS Grid Layout',
-      description: 'Two-dimensional layout system for complex designs',
+      title: "CSS Grid Layout",
+      description: "Two-dimensional layout system for complex designs",
       content: `CSS Grid Layout is the most powerful layout system available in CSS. It's a 2-dimensional system—handling both columns and rows—unlike Flexbox which is 1-dimensional.
 
 **Key Concepts:**
@@ -281,11 +300,11 @@ nav.header { color: green; }
 .sidebar { grid-area: sidebar; }
 .content { grid-area: content; }
 .footer { grid-area: footer; }`,
-      language: 'css'
+      language: "css",
     },
     {
-      title: 'Semantic HTML & Accessibility',
-      description: 'Writing meaningful markup for better accessibility and SEO',
+      title: "Semantic HTML & Accessibility",
+      description: "Writing meaningful markup for better accessibility and SEO",
       content: `Semantic HTML uses elements that describe their meaning to both the browser and the developer. This improves accessibility, SEO, and code maintainability.
 
 **Key Semantic Elements:**
@@ -348,11 +367,11 @@ nav.header { color: green; }
     <p>&copy; 2024 Company</p>
   </footer>
 </body>`,
-      language: 'html'
+      language: "html",
     },
     {
-      title: 'Responsive Design & Media Queries',
-      description: 'Creating layouts that work across all device sizes',
+      title: "Responsive Design & Media Queries",
+      description: "Creating layouts that work across all device sizes",
       content: `Responsive web design ensures your application looks good on all devices by adapting the layout to different screen sizes.
 
 **Core Techniques:**
@@ -423,13 +442,13 @@ Essential for mobile browsers to render pages at proper width
 h1 {
   font-size: clamp(1.5rem, 4vw + 1rem, 3rem);
 }`,
-      language: 'css'
-    }
+      language: "css",
+    },
   ] as Topic[],
 
   questions: [
     {
-      question: 'What is the CSS Box Model?',
+      question: "What is the CSS Box Model?",
       answer: `The CSS Box Model is a box that wraps around every HTML element. It consists of:
 
 1. **Content** - The actual content of the box (text, images, etc.)
@@ -448,10 +467,11 @@ Using border-box is generally recommended as it makes sizing more intuitive:
   box-sizing: border-box;
 }
 \`\`\``,
-      difficulty: 'easy'
+      difficulty: "easy",
     },
     {
-      question: 'What is the difference between inline, block, and inline-block elements?',
+      question:
+        "What is the difference between inline, block, and inline-block elements?",
       answer: `**Block Elements:**
 - Always start on a new line
 - Take up full width available
@@ -474,10 +494,10 @@ Using border-box is generally recommended as it makes sizing more intuitive:
 - Block: Layout containers, structural elements
 - Inline: Styling text within paragraphs
 - Inline-block: Navigation menus, button groups, image galleries`,
-      difficulty: 'easy'
+      difficulty: "easy",
     },
     {
-      question: 'Explain CSS specificity and how it works.',
+      question: "Explain CSS specificity and how it works.",
       answer: `CSS specificity determines which CSS rule applies when multiple rules target the same element.
 
 **Specificity Hierarchy (highest to lowest):**
@@ -501,10 +521,11 @@ Specificity is calculated as: (ID count, Class count, Type count)
 - !important overrides all specificity
 - Equal specificity: last declared wins
 - Universal selector (*) has no specificity`,
-      difficulty: 'medium'
+      difficulty: "medium",
     },
     {
-      question: 'What is the difference between Flexbox and CSS Grid? When should you use each?',
+      question:
+        "What is the difference between Flexbox and CSS Grid? When should you use each?",
       answer: `**Flexbox (Flexible Box Layout):**
 - One-dimensional layout system
 - Designed for layout in a single direction (row OR column)
@@ -552,10 +573,11 @@ Specificity is calculated as: (ID count, Class count, Type count)
   justify-content: space-between;
 }
 \`\`\``,
-      difficulty: 'medium'
+      difficulty: "hard",
     },
     {
-      question: 'How do you create a responsive layout without using media queries?',
+      question:
+        "How do you create a responsive layout without using media queries?",
       answer: `There are several modern CSS techniques to create responsive layouts without media queries:
 
 **1. Flexbox with flex-wrap:**
@@ -609,10 +631,11 @@ Specificity is calculated as: (ID count, Class count, Type count)
 - Smoother transitions between sizes
 - More maintainable code
 - Better component reusability`,
-      difficulty: 'medium'
+      difficulty: "hard",
     },
     {
-      question: 'Explain the difference between em, rem, px, and viewport units (vw/vh) in CSS.',
+      question:
+        "Explain the difference between em, rem, px, and viewport units (vw/vh) in CSS.",
       answer: `**px (Pixels):**
 - Absolute unit
 - 1px = 1 device pixel (though on high-DPI screens may be scaled)
@@ -661,10 +684,11 @@ html {
 - Use em for component-scaled properties
 - Use px for hairlines and borders
 - Use vw/vh for viewport-relative layouts`,
-      difficulty: 'medium'
+      difficulty: "medium",
     },
     {
-      question: 'What is the difference between pseudo-classes and pseudo-elements?',
+      question:
+        "What is the difference between pseudo-classes and pseudo-elements?",
       answer: `**Pseudo-classes** (selector:state):
 - Define a special state of an element
 - Use single colon (:)
@@ -721,10 +745,10 @@ p::first-letter {
   font-size: 2em;
 }
 \`\`\``,
-      difficulty: 'easy'
+      difficulty: "hard",
     },
     {
-      question: 'How would you optimize CSS for better performance?',
+      question: "How would you optimize CSS for better performance?",
       answer: `CSS optimization strategies for better performance:
 
 **1. Minimize CSS Size:**
@@ -785,10 +809,54 @@ margin: 10px 20px;
 - Use content hashing in filenames
 - Set proper cache headers
 - Separate vendor CSS from application CSS`,
-      difficulty: 'hard'
+      difficulty: "hard",
     },
     {
-      question: 'Explain CSS containment and when to use it.',
+      question:
+        "What is difference between style,class and className and when to use each of them?",
+      answer: `**style:**
+- Refers to the inline styles of an element
+- Can be set directly on an element (e.g., <div style="color: red;">)
+- In JavaScript, it is accessed as element.style.property
+- Use for dynamic styles that change frequently or are specific to a single element
+
+**class:**
+- Refers to the class attribute in HTML
+- Used to apply CSS rules defined in stylesheets
+- Can contain multiple class names separated by spaces (e.g., <div class="btn primary">)
+- Use for styling groups of elements with shared styles
+
+**className:**
+- In JavaScript, className is a property that gets or sets the value of the class attribute
+- It is used to manipulate classes dynamically (e.g., element.className = "btn primary";)
+- Use when you need to add, remove, or toggle classes via JavaScript
+
+**When to use each:**
+- Use style for one-off, dynamic styles that are not reusable
+- Use class for applying predefined styles from CSS
+- Use className in JavaScript to manipulate classes on elements dynamically
+function Car() {
+  const btnStyle = {
+    backgroundColor: 'blue',
+    color: 'white'
+  };
+
+  return (
+    <button
+      style = {btnStyle}
+       className = 'btn-primary'
+      onClick = {() => alert('Clicked!')}
+    >
+      Click me
+    </button>
+  );
+}
+
+`,
+      difficulty: "hard",
+    },
+    {
+      question: "Explain CSS containment and when to use it.",
       answer: `CSS containment is a property that tells the browser that an element's subtree is independent of the rest of the page, allowing for optimization.
 
 **contain property values:**
@@ -853,10 +921,11 @@ margin: 10px 20px;
 **Browser Support:**
 - Well supported in modern browsers
 - Fallback: browsers ignore unknown contain values`,
-      difficulty: 'hard'
+      difficulty: "hard",
     },
     {
-      question: 'What are CSS Container Queries and how do they differ from Media Queries?',
+      question:
+        "What are CSS Container Queries and how do they differ from Media Queries?",
       answer: `Container queries are a modern CSS feature that allow you to style elements based on the size of their container, not the viewport.
 
 **Media Queries Limitations:**
@@ -950,17 +1019,44 @@ margin: 10px 20px;
 - More maintainable code
 - Better for design systems
 - Component can adapt anywhere it's placed`,
-      difficulty: 'hard'
+      difficulty: "hard",
     },
     {
-      question: 'Explain how stacking contexts work and why z-index sometimes \"doesn\'t work.\"',
+      question:
+        "When to use background-color or backgrounColor or font-size and fontSize ?",
+      answer: `Each of these properties serves a specific purpose in CSS and JavaScript:
+
+      **background-color:**
+      - CSS property for setting the background color of an element
+      - Use in stylesheets or style attributes
+      \`\`\`css
+      .element {
+        background-color: blue;
+      }
+      \`\`\`
+
+      **backgroundColor:**
+      - JavaScript property for manipulating the background color of an element
+      - Use when dynamically changing styles via JavaScript
+      \`\`\`javascript
+      const element = document.querySelector('.element');
+      element.style.backgroundColor = 'blue';
+      \`\`\``,
+
+
+      difficulty: "medium",
+    },
+    {
+      question:
+        'Explain how stacking contexts work and why z-index sometimes "doesn\'t work."',
       answer: `Stacking contexts are created by positioned elements with z-index, opacity < 1, transforms, filters, and other properties. z-index only affects ordering within the same stacking context, so elements in different contexts won\'t overlap as expected. Debug by identifying which ancestor created a new context.`,
-      difficulty: 'hard'
+      difficulty: "hard",
     },
     {
-      question: 'How do layout, paint, and composite stages impact performance?',
+      question:
+        "How do layout, paint, and composite stages impact performance?",
       answer: `Layout recalculates element geometry, paint draws pixels, and composite combines layers. Layout and paint are expensive; prefer transform/opacity animations that only trigger compositing for smoother performance.`,
-      difficulty: 'hard'
-    }
-  ] as Question[]
+      difficulty: "hard",
+    },
+  ] as Question[],
 };
