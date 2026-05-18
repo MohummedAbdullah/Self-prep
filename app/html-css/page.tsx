@@ -1,13 +1,32 @@
 import { ModuleLayout } from '../components/ModuleLayout';
 import { TopicCard } from '../components/TopicCard';
 import { QuestionAccordion } from '../components/QuestionAccordion';
-import { htmlCssData } from './data';
+import { ApiErrorState } from '../components/ApiErrorState';
+import { fetchModuleContent } from '../lib/api';
 import { sortByDifficultyHardFirst, sortByImportanceHardFirst, sortTopicsHardFirst } from '../lib/rank';
 
-export default function HtmlCssPage() {
-  const technicalTerms = [...htmlCssData.technicalTerms].sort(sortByImportanceHardFirst);
-  const topics = [...htmlCssData.topics].sort(sortTopicsHardFirst);
-  const questions = [...htmlCssData.questions].sort(sortByDifficultyHardFirst);
+export default async function HtmlCssPage() {
+  let moduleData: any;
+  try {
+    moduleData = await fetchModuleContent('html-css');
+  } catch (err) {
+    const message = err instanceof Error ? err.message : 'Unknown error';
+    return (
+      <ModuleLayout
+        title="HTML & CSS"
+        description="Master semantic HTML, modern CSS, responsive design, and frontend fundamentals"
+        icon="🎨"
+        sections={[{ id: 'overview', title: 'Overview' }]}
+      >
+        <section id="overview" className="mb-12">
+          <ApiErrorState title="Backend API required" message={`Failed to load module 'html-css' from API: ${message}`} />
+        </section>
+      </ModuleLayout>
+    );
+  }
+  const technicalTerms = [...moduleData.technicalTerms].sort(sortByImportanceHardFirst);
+  const topics = [...moduleData.topics].sort(sortTopicsHardFirst);
+  const questions = [...moduleData.questions].sort(sortByDifficultyHardFirst);
 
   return (
     <ModuleLayout

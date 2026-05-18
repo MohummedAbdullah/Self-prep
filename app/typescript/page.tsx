@@ -1,13 +1,32 @@
 import { ModuleLayout } from '../components/ModuleLayout';
 import { TopicCard } from '../components/TopicCard';
 import { QuestionAccordion } from '../components/QuestionAccordion';
-import { typescriptData } from './data';
+import { ApiErrorState } from '../components/ApiErrorState';
+import { fetchModuleContent } from '../lib/api';
 import { sortByDifficultyHardFirst, sortByImportanceHardFirst, sortTopicsHardFirst } from '../lib/rank';
 
-export default function Page() {
-  const technicalTerms = [...typescriptData.technicalTerms].sort(sortByImportanceHardFirst);
-  const topics = [...typescriptData.topics].sort(sortTopicsHardFirst);
-  const questions = [...typescriptData.questions].sort(sortByDifficultyHardFirst);
+export default async function Page() {
+  let moduleData: any;
+  try {
+    moduleData = await fetchModuleContent('typescript');
+  } catch (err) {
+    const message = err instanceof Error ? err.message : 'Unknown error';
+    return (
+      <ModuleLayout
+        title="TypeScript"
+        description="Type systems, interfaces, generics, and scalable TypeScript patterns"
+        icon="🔷"
+        sections={[{ id: 'overview', title: 'Overview' }]}
+      >
+        <section id="overview" className="mb-12">
+          <ApiErrorState title="Backend API required" message={`Failed to load module 'typescript' from API: ${message}`} />
+        </section>
+      </ModuleLayout>
+    );
+  }
+  const technicalTerms = [...moduleData.technicalTerms].sort(sortByImportanceHardFirst);
+  const topics = [...moduleData.topics].sort(sortTopicsHardFirst);
+  const questions = [...moduleData.questions].sort(sortByDifficultyHardFirst);
 
   return (
     <ModuleLayout

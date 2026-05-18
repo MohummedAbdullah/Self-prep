@@ -1,13 +1,32 @@
 import { ModuleLayout } from '../components/ModuleLayout';
 import { TopicCard } from '../components/TopicCard';
 import { QuestionAccordion } from '../components/QuestionAccordion';
-import { expressData } from './data';
+import { ApiErrorState } from '../components/ApiErrorState';
+import { fetchModuleContent } from '../lib/api';
 import { sortByDifficultyHardFirst, sortByImportanceHardFirst, sortTopicsHardFirst } from '../lib/rank';
 
-export default function Page() {
-  const technicalTerms = [...expressData.technicalTerms].sort(sortByImportanceHardFirst);
-  const topics = [...expressData.topics].sort(sortTopicsHardFirst);
-  const questions = [...expressData.questions].sort(sortByDifficultyHardFirst);
+export default async function Page() {
+  let moduleData: any;
+  try {
+    moduleData = await fetchModuleContent('express');
+  } catch (err) {
+    const message = err instanceof Error ? err.message : 'Unknown error';
+    return (
+      <ModuleLayout
+        title="Express.js"
+        description="Middleware, routing, error handling, authentication, and building RESTful APIs with Express."
+        icon="🚂"
+        sections={[{ id: 'overview', title: 'Overview' }]}
+      >
+        <section id="overview" className="mb-12">
+          <ApiErrorState title="Backend API required" message={`Failed to load module 'express' from API: ${message}`} />
+        </section>
+      </ModuleLayout>
+    );
+  }
+  const technicalTerms = [...moduleData.technicalTerms].sort(sortByImportanceHardFirst);
+  const topics = [...moduleData.topics].sort(sortTopicsHardFirst);
+  const questions = [...moduleData.questions].sort(sortByDifficultyHardFirst);
 
   return (
     <ModuleLayout

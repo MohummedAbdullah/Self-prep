@@ -1,13 +1,32 @@
 import { ModuleLayout } from '../components/ModuleLayout';
 import { TopicCard } from '../components/TopicCard';
 import { QuestionAccordion } from '../components/QuestionAccordion';
-import { reactnativeData } from './data';
+import { ApiErrorState } from '../components/ApiErrorState';
+import { fetchModuleContent } from '../lib/api';
 import { sortByDifficultyHardFirst, sortByImportanceHardFirst, sortTopicsHardFirst } from '../lib/rank';
 
-export default function Page() {
-  const technicalTerms = [...reactnativeData.technicalTerms].sort(sortByImportanceHardFirst);
-  const topics = [...reactnativeData.topics].sort(sortTopicsHardFirst);
-  const questions = [...reactnativeData.questions].sort(sortByDifficultyHardFirst);
+export default async function Page() {
+  let moduleData: any;
+  try {
+    moduleData = await fetchModuleContent('react-native');
+  } catch (err) {
+    const message = err instanceof Error ? err.message : 'Unknown error';
+    return (
+      <ModuleLayout
+        title="React Native"
+        description="Cross-platform mobile development and native integrations"
+        icon="📱"
+        sections={[{ id: 'overview', title: 'Overview' }]}
+      >
+        <section id="overview" className="mb-12">
+          <ApiErrorState title="Backend API required" message={`Failed to load module 'react-native' from API: ${message}`} />
+        </section>
+      </ModuleLayout>
+    );
+  }
+  const technicalTerms = [...moduleData.technicalTerms].sort(sortByImportanceHardFirst);
+  const topics = [...moduleData.topics].sort(sortTopicsHardFirst);
+  const questions = [...moduleData.questions].sort(sortByDifficultyHardFirst);
 
   return (
     <ModuleLayout

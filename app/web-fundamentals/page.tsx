@@ -1,13 +1,32 @@
 import { ModuleLayout } from '../components/ModuleLayout';
 import { TopicCard } from '../components/TopicCard';
 import { QuestionAccordion } from '../components/QuestionAccordion';
-import { webFundamentalsData } from './data';
+import { ApiErrorState } from '../components/ApiErrorState';
+import { fetchModuleContent } from '../lib/api';
 import { sortByDifficultyHardFirst, sortByImportanceHardFirst, sortTopicsHardFirst } from '../lib/rank';
 
-export default function Page() {
-  const technicalTerms = [...webFundamentalsData.technicalTerms].sort(sortByImportanceHardFirst);
-  const topics = [...webFundamentalsData.topics].sort(sortTopicsHardFirst);
-  const questions = [...webFundamentalsData.questions].sort(sortByDifficultyHardFirst);
+export default async function Page() {
+  let moduleData: any;
+  try {
+    moduleData = await fetchModuleContent('web-fundamentals');
+  } catch (err) {
+    const message = err instanceof Error ? err.message : 'Unknown error';
+    return (
+      <ModuleLayout
+        title="Web Fundamentals"
+        description="HTTP, auth, security, CORS, realtime, and database foundations for full-stack interviews"
+        icon="🌐"
+        sections={[{ id: 'overview', title: 'Overview' }]}
+      >
+        <section id="overview" className="mb-12">
+          <ApiErrorState title="Backend API required" message={`Failed to load module 'web-fundamentals' from API: ${message}`} />
+        </section>
+      </ModuleLayout>
+    );
+  }
+  const technicalTerms = [...moduleData.technicalTerms].sort(sortByImportanceHardFirst);
+  const topics = [...moduleData.topics].sort(sortTopicsHardFirst);
+  const questions = [...moduleData.questions].sort(sortByDifficultyHardFirst);
 
   return (
     <ModuleLayout
@@ -120,4 +139,3 @@ export default function Page() {
     </ModuleLayout>
   );
 }
-

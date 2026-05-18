@@ -11,7 +11,7 @@ export const modules: Module[] = [
   {
     id: 'generic',
     name: 'Generic Concepts',
-    description: 'Core programming concepts, data structures, algorithms, and design patterns applicable across all languages and frameworks.',
+    description: 'Ce programming concepts, data structures, algorithms, and design patterns applicable across all languages and frameworks.',
     path: '/generic',
     icon: '📚',
     category: 'generic',

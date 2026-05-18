@@ -272,27 +272,16 @@ export function sortByImportanceHardFirst<TItem extends { importance: Importance
  * 
  * @see sortByDifficultyHardFirst for strict difficulty (throws on missing)
  */
-export function sortTopicsHardFirst<TItem extends { difficulty?: Difficulty }>(
-  a: TItem, 
-  b: TItem
-): number {
-  // Helper function to get rank with default fallback
-  const getSafeRank = (item: TItem): number => {
-    // Check if difficulty exists and is valid
-    if (item.difficulty && isValidDifficulty(item.difficulty)) {
-      return difficultyRank(item.difficulty);
+export function sortTopicsHardFirst(a: unknown, b: unknown): number {
+  const getSafeRank = (item: unknown): number => {
+    const difficulty = (item as { difficulty?: unknown } | null)?.difficulty;
+    if (typeof difficulty === 'string' && isValidDifficulty(difficulty)) {
+      return difficultyRank(difficulty);
     }
-    
-    // Edge case: Invalid or missing difficulty defaults to medium (rank 1)
-    // Using medium as default provides a balanced middle ground
-    // This prevents crashes and provides predictable sorting behavior
-    return 1; // Medium priority default
+    return 1; // Default to medium when missing/invalid
   };
 
-  const rankA = getSafeRank(a);
-  const rankB = getSafeRank(b);
-  
-  return rankA - rankB;
+  return getSafeRank(a) - getSafeRank(b);
 }
 
 /**

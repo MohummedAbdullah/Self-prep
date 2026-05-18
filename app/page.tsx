@@ -1,7 +1,22 @@
 import Link from 'next/link';
-import { modules } from './data/modules';
+import { fetchModules } from './lib/api';
+import { ApiErrorState } from './components/ApiErrorState';
 
-export default function Home() {
+export default async function Home() {
+  let modules;
+  try {
+    ({ modules } = await fetchModules());
+  } catch (err) {
+    const message = err instanceof Error ? err.message : 'Unknown error';
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-6">
+        <div className="mx-auto max-w-3xl pt-10">
+          <ApiErrorState title="Backend API required" message={`Failed to load modules from API: ${message}`} />
+        </div>
+      </div>
+    );
+  }
+  console.log("what in modules here",modules)
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       {/* Hero Section */}
