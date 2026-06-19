@@ -1,36 +1,53 @@
+"use client";
 import Link from 'next/link';
 import { modules } from './data/modules';
+import { useEffect, useState, useRef } from 'react';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Hero Section */}
-      <section className="relative px-6 py-24 lg:px-2">
+    <div className="relative min-h-screen selection:bg-cyan-500/30">
+    {/* BACKGROUND LAYER */}
+
+
+    {/* CONTENT LAYER WRAPPER */}
+    {/* This container ignores pointer events, letting the background "see" your mouse */}
+    <div className="relative z-10 pointer-events-none">
+      
+      {/* HERO SECTION */}
+      {/* Re-enable pointer events so buttons and links work */}
+      <section className="relative px-6 py-12 lg:py-20 ">
         <div className="mx-auto max-w-4xl text-center">
-          <h1 className="text-5xl font-bold tracking-tight text-white sm:text-7xl mb-6">
+          <h1 className="text-6xl font-bold tracking-tight text-white sm:text-6xl mb-8">
             Full Stack Interview
-            <span className="text-cyan-400"> Prep</span>
+            <span className="text-cyan-400 block sm:inline"> Prep</span>
           </h1>
-          <p className="mt-6 text-lg leading-8 text-slate-300">
-            Master technical interviews with comprehensive modules covering full-stack development,
-            system architecture, and developer best practices across multiple technologies.
+          <p className="mt-6 text-xl leading-8 text-slate-400 max-w-2xl mx-auto">
+            Master technical interviews with comprehensive modules covering architecture, 
+            frontend, and backend mastery.
           </p>
-          <div className="mt-10 flex items-center justify-center gap-x-6">
+          <div className="mt-6 flex items-center justify-center gap-x-6">
             <Link
               href="/generic"
-              className="rounded-full bg-cyan-500 px-8 py-4 text-base font-semibold text-white shadow-lg hover:bg-cyan-400 transition-all hover:scale-105"
+              className="rounded-full bg-cyan-500 px-10 py-4 text-lg font-semibold text-white shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:bg-cyan-400 transition-all hover:scale-105"
             >
               Start Learning
-            </Link>
-            <Link href="#modules" className="text-base font-semibold text-slate-300 hover:text-white">
-              Browse Modules <span aria-hidden="true">→</span>
-            </Link>
+              </Link>
+              <div 
+                  // href="#modules" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('modules')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="text-base font-semibold text-slate-300 hover:text-white cursor-pointer"
+                >
+                  Browse Modules <span aria-hidden="true">→</span>
+                </div>
           </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 border-y border-slate-800">
+      <section className="py-6  ">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <dl className="grid grid-cols-1 gap-x-8 gap-y-8 text-center sm:grid-cols-4">
             <div className="mx-auto flex max-w-xs flex-col gap-y-2">
@@ -53,52 +70,75 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Modules Grid */}
-      <section id="modules" className="py-24 px-6">
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-white sm:text-4xl">Learning Modules</h2>
-            <p className="mt-4 text-lg text-slate-400">Choose your path to interview mastery</p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {modules.map((module) => (
-              <Link
-                key={module.id}
-                href={module.path}
-                className="group relative rounded-2xl border border-slate-700 bg-slate-800/50 p-8 hover:bg-slate-800 transition-all hover:scale-[1.02] hover:border-cyan-500/50"
-              >
-                <div className="flex items-center gap-x-4 mb-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 text-white text-2xl">
-                    {module.icon}
-                  </div>
+        {/* MODULES GRID */}
+        <section id="modules" className="py-24 px-6 pointer-events-auto">
+          <div className="mx-auto max-w-7xl">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {modules.map((module) => (
+                <Link
+                  key={module.id}
+                  href={module.path}
+                  className="group relative rounded-2xl border border-slate-800/50 bg-slate-900/40 p-8 hover:bg-slate-800/60 transition-all hover:border-cyan-500/50 backdrop-blur-sm"
+                >
                   <h3 className="text-xl font-semibold text-white group-hover:text-cyan-400 transition-colors">
                     {module.name}
                   </h3>
-                </div>
-                <p className="text-slate-400 text-sm leading-relaxed mb-4">
-                  {module.description}
-                </p>
-                <div className="flex items-center text-sm text-cyan-400 font-medium">
-                  Explore module
-                  <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </Link>
-            ))}
+                  <p className="mt-4 text-slate-400 text-sm leading-relaxed">
+                    {module.description}
+                  </p>
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Footer */}
-      <footer className="border-t border-slate-800 py-12">
-        <div className="mx-auto max-w-7xl px-6 text-center">
-          <p className="text-slate-400 text-sm">
-            Full Stack Interview Prep © {new Date().getFullYear()} — Built for developers, by developers
-          </p>
-        </div>
-      </footer>
+        {/* FOOTER */}
+        <footer className="py-20 border-t border-white/5 pointer-events-auto">
+          <div className="text-center text-slate-500 text-sm">
+            © {new Date().getFullYear()} — Built for developers.
+          </div>
+        </footer>
+      </div>
     </div>
   );
 }
+
+
+// function InteractiveBackground() {
+//   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+//   const containerRef = useRef<HTMLDivElement>(null);
+
+//   useEffect(() => {
+//     const handleMouseMove = (event: MouseEvent) => {
+//       setMousePos({ x: event.clientX, y: event.clientY });
+//     };
+
+//     window.addEventListener('mousemove', handleMouseMove);
+//     return () => window.removeEventListener('mousemove', handleMouseMove);
+//   }, []);
+
+//   return (
+//     <div ref={containerRef} className="fixed inset-0 z-0 bg-[#0a0a0a] overflow-hidden">
+//       {/* Dynamic Spotlight */}
+//       <div 
+//         className="pointer-events-none absolute inset-0 transition-opacity duration-500 ease-out"
+//         style={{
+//           background: `radial-gradient(200px circle at ${mousePos.x}px ${mousePos.y}px, rgba(250, 250, 250, 0.22), transparent 100%)`
+//         }}
+//       />
+
+//       {/* Static Ambient Glows */}
+//       {/* <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-green-800/2 blur-[50px] pointer-events-none" /> */}
+//       <div className="absolute top-[-10%] left-[-10%] w-[100%] h-[50%] rounded-full bg-cyan-100/10 blur-[80px] pointer-events-none" />
+//       <div className="absolute bottom-[-10%] right-[50%] w-[20%] h-[50%] rounded-full bg-red-100/10 blur-[80px] pointer-events-none" />
+//       {/* <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-red-200/5 blur-[50px] pointer-events-none" /> */}
+
+      
+//       {/* Noise Overlay - Fixed path */}
+//       <div 
+//         className="absolute inset-0 opacity-[0.93] pointer-events-none" 
+//         style={{ backgroundImage: `url('/assets/nnnoise.svg')` }}
+//       />
+//     </div>
+//   );
+// }

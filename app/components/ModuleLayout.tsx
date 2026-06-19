@@ -15,8 +15,8 @@ export function ModuleLayout({ title, description, icon, children, sections }: M
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-slate-950">
-      {/* Header */}
+    <div className="relative z-10 min-h-screen bg-transparent"> {/* ✅ Added relative and z-10 */}
+      {/* Header with glass effect */}
       <header className="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/80 backdrop-blur-xl">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
@@ -50,7 +50,7 @@ export function ModuleLayout({ title, description, icon, children, sections }: M
         <div className="flex gap-8">
           {/* Sidebar Navigation */}
           <aside className={`
-            ${isSidebarOpen ? 'fixed inset-0 z-40 bg-slate-950 lg:static lg:bg-transparent' : 'hidden lg:block'}
+            ${isSidebarOpen ? 'fixed inset-0 z-40 bg-slate-950/95 lg:static lg:bg-transparent' : 'hidden lg:block'}
             lg:w-64 flex-shrink-0
           `}>
             <div className="lg:sticky lg:top-24 p-4 lg:p-0">
@@ -74,7 +74,7 @@ export function ModuleLayout({ title, description, icon, children, sections }: M
                     key={section.id}
                     href={`#${section.id}`}
                     onClick={() => setIsSidebarOpen(false)}
-                    className="block px-3 py-2 text-sm text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors"
+                    className="block px-3 py-2 text-sm text-slate-400 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors"
                   >
                     {section.title}
                   </a>
@@ -84,7 +84,7 @@ export function ModuleLayout({ title, description, icon, children, sections }: M
           </aside>
 
           {/* Main Content */}
-          <main className="flex-1 min-w-0">
+          <main className="flex-1 min-w-0 ">
             {/* Hero Section */}
             <div className="mb-12">
               <div className="flex items-center gap-4 mb-4">
@@ -96,7 +96,10 @@ export function ModuleLayout({ title, description, icon, children, sections }: M
               </div>
             </div>
 
-            {children}
+            {/* Children - content sections */}
+            <div className="relative z-10"> {/* ✅ Added wrapper with z-index */}
+              {children}
+            </div>
           </main>
         </div>
       </div>

@@ -7,7 +7,7 @@
 
 ## Key Conventions
 - Module pages live in `app/<module>/page.tsx`
-- Module data lives in `app/<module>/data.ts` (except HTML/CSS in `app/data/html-css-data.ts`)
+- Module data lives in `app/<module>/data.ts`
 - Shared components in `app/components/`
 - Landing page modules list: `app/data/modules.ts`
 

@@ -23,8 +23,23 @@
   }
 }
 
-body {
+/* body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans);
+} */
+body {
+  /* Set background to transparent or match the background layer */
+  background: #0a0a0a; 
+  color: var(--foreground);
+  font-family: var(--font-geist-sans);
+}
+
+/* Custom utility classes if you prefer them over Tailwind classes */
+.u-pointer-off {
+  pointer-events: none;
+}
+
+.u-pointer-on {
+  pointer-events: auto;
 }
